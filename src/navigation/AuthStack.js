@@ -9,6 +9,13 @@ import Landing from "../views/screens/Landing/Landing";
 import Welcome from "../views/screens/Welcome/Welcome";
 import DrawerNavigation from "./DrawerNavigation";
 import TabNavigation from "./TabNavigation";
+import { AppLoading } from "expo-app-loading";
+import { 
+  useFonts,
+  CrimsonText_400Regular,
+  CrimsonText_600SemiBold,
+  CrimsonText_700Bold, 
+} from '@expo-google-fonts/crimson-text'
 
 const Stack = createStackNavigator();
 
@@ -26,6 +33,14 @@ const screenOptions = {
 const options = { headerShown: false };
 
 const AuthStack = ({ navigate, isLoggedIn }) => {
+  let [fontsLoaded, error] = useFonts({
+    Regular: CrimsonText_400Regular,
+    SemiBold: CrimsonText_600SemiBold,
+    Bold: CrimsonText_700Bold,
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
   return (
     <View style={{ flex: 1 }}>
       <Stack.Navigator initialRouteName="welcome" screenOptions={screenOptions}>

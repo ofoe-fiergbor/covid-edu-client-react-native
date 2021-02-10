@@ -6,7 +6,7 @@ const Welcome = ({navigation:{navigate}}) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={()=> navigate('landing')}>
-                <Text>get started</Text>
+                <Text style={{fontFamily: 'Regular'}}>get started</Text>
             </TouchableOpacity>
         </View>
     )

@@ -1,17 +1,16 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Entypo, AntDesign } from "@expo/vector-icons";
-
+import {colors} from "../constants"
 import Post from "../views/screens/PostWall/Post";
 import News from "../views/screens/NewsWall/News";
 import Tracker from "../views/screens/Tracker/Tracker";
-import Tips from "../views/screens/Tips/Tips";
 
 const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
-    <Tab.Navigator initialRouteName="post">
+    <Tab.Navigator initialRouteName="post" shifting={true}>
       <Tab.Screen
         name="post"
         component={Post}
@@ -20,7 +19,7 @@ const TabNavigation = () => {
           tabBarIcon: ({ color }) => (
             <Entypo name="list" size={26} color={color} />
           ),
-          tabBarColor: "#035efc",
+          tabBarColor: colors.blue,
         }}
       />
       <Tab.Screen
@@ -31,7 +30,7 @@ const TabNavigation = () => {
           tabBarIcon: ({ color }) => (
             <Entypo name="news" size={26} color={color} />
           ),
-          tabBarColor: "#525efc",
+          tabBarColor: colors.purple,
         }}
       />
       <Tab.Screen
@@ -42,18 +41,7 @@ const TabNavigation = () => {
           tabBarIcon: ({ color }) => (
             <AntDesign name="linechart" size={26} color={color} />
           ),
-          tabBarColor: "#0b357d",
-        }}
-      />
-      <Tab.Screen
-        name="tips"
-        component={Tips}
-        options={{
-          tabBarLabel: "Tips",
-          tabBarIcon: ({ color }) => (
-            <Entypo name="light-bulb" size={26} color={color} />
-          ),
-          tabBarColor: "#4c44ad",
+          tabBarColor: colors.darkBlue,
         }}
       />
     </Tab.Navigator>

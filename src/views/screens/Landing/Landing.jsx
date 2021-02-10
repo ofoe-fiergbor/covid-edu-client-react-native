@@ -1,10 +1,13 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
+import styles from './styles'
 
-const Landing = () => {
+const Landing = ({navigation:{navigate}}) => {
     return (
-        <View>
-            <Text></Text>
+        <View style={styles.container}>
+            <TouchableOpacity onPress={()=> navigate('drawer')}>
+                <Text>Drawer</Text>
+            </TouchableOpacity>
         </View>
     )
 }

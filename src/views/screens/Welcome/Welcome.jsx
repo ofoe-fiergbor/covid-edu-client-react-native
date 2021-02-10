@@ -5,7 +5,7 @@ import styles from './styles'
 const Welcome = ({navigation:{navigate}}) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=> navigate('login')}>
+            <TouchableOpacity onPress={()=> navigate('landing')}>
                 <Text>get started</Text>
             </TouchableOpacity>
         </View>

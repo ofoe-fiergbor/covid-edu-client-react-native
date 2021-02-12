@@ -6,11 +6,11 @@ import {colors, dimensions} from '../../../constants'
     container:{
         backgroundColor:colors.blueGray,
         height:dimensions.inputHeight,
-        width: dimensions.matchParent,
         justifyContent:'center',
         alignItems:'center',
         borderRadius:dimensions.radius.sm
-    }
+    },
+   
 })
 
 export default styles

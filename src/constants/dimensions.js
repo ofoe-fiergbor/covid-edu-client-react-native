@@ -22,7 +22,8 @@ const dimensions = {
         sm: 15,
         md: 20,
         lg: 30,
-        xl: 40,
+        xl: 35,
+        xxl: 40
     },
     border: {
         xxs: 0.5,
@@ -44,7 +45,9 @@ const dimensions = {
         sm: 40,
         md: 75,
         lg: 100,
-        xl: 135
+        xl: 135,
+        xxl: 250,
+        xxxl: 300
     },
     inputHeight: 50,
     matchParent: '100%',

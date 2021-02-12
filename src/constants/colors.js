@@ -9,7 +9,10 @@ const colors = {
     skyBlue: "skyblue",
     red: "red",
     whiteGray: "#f4f4f4",
+    sanitize: "#6ee0b6",
     darkBlue: "#0b357d",
+    wash: "#e66140",
+    mask: "#e38030"
   };
   
   export default colors;

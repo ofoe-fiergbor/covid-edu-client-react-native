@@ -1,11 +1,30 @@
 import {StyleSheet} from 'react-native'
+import { colors, dimensions } from "../../../constants";
 
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
+    title:{
+        fontFamily: "Bold",
+        fontSize: dimensions.font.xl
+    },
+    subTitle:{
+        fontFamily: "Regular",
+        fontSize: dimensions.font.sm
+    },
+    image:{
+        width: dimensions.image.lg,
+        height: dimensions.image.xxl
+    },
+    image1:{
+        width: dimensions.image.xl,
+        height: dimensions.image.xxl
+    },
+    buttonText:{
+        fontFamily: 'Bold',
+        fontSize: dimensions.font.sm
+    },
+    button:{
+        marginHorizontal: dimensions.margin.md
     }
 })
 

@@ -9,6 +9,7 @@ import Landing from "../views/screens/Landing/Landing";
 import Welcome from "../views/screens/Welcome/Welcome";
 import DrawerNavigation from "./DrawerNavigation";
 import TabNavigation from "./TabNavigation";
+import Auth from "../views/screens/Auth/Auth";
 
 
 const Stack = createStackNavigator();
@@ -38,6 +39,7 @@ const AuthStack = ({ navigate, isLoggedIn }) => {
 
         <Stack.Screen name="landing" component={Landing} options={options} />
         <Stack.Screen name="welcome" component={Welcome} options={options} />
+        <Stack.Screen name="auth" component={Auth} options={options}/>
       
       </Stack.Navigator>
     </View>

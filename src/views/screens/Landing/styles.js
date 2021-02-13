@@ -16,13 +16,14 @@ const styles = StyleSheet.create({
         height: dimensions.image.xxl
     },
     image1:{
-        width: dimensions.image.xl,
+        width: dimensions.image.xlx,
         height: dimensions.image.xxl
     },
     buttonText:{
         fontFamily: 'Bold',
         fontSize: dimensions.font.sm
     },
+  
     button:{
         marginHorizontal: dimensions.margin.md
     }

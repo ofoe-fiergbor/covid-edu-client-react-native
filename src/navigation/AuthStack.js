@@ -6,7 +6,6 @@ import { colors } from "../constants"
 import PostDetail from "../views/screens/PostDetail/PostDetail";
 import TipDetail from "../views/screens/TipDetail/TipDetail";
 import Landing from "../views/screens/Landing/Landing";
-import Welcome from "../views/screens/Welcome/Welcome";
 import DrawerNavigation from "./DrawerNavigation";
 import TabNavigation from "./TabNavigation";
 import Auth from "../views/screens/Auth/Auth";
@@ -31,14 +30,13 @@ const AuthStack = ({ navigate, isLoggedIn }) => {
  
   return (
     <View style={{ flex: 1 }}>
-      <Stack.Navigator initialRouteName="welcome" screenOptions={screenOptions}>
+      <Stack.Navigator initialRouteName="landing" screenOptions={screenOptions}>
         <Stack.Screen name="tabs" component={TabNavigation} />
         <Stack.Screen name="drawer" component={DrawerNavigation} />
         <Stack.Screen name="postDetail" component={PostDetail} />
         <Stack.Screen name="tipDetail" component={TipDetail} />
 
         <Stack.Screen name="landing" component={Landing} options={options} />
-        <Stack.Screen name="welcome" component={Welcome} options={options} />
         <Stack.Screen name="auth" component={Auth} options={options}/>
       
       </Stack.Navigator>

@@ -1,33 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Provider } from "react-redux";
 import {
-  createHttpLink,
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-} from "@apollo/client";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./src/backend/redux/reducers/store";
-import Root from "./src/navigation/Root";
-import AppLoading  from "expo-app-loading";
-import { 
-  useFonts,
   CrimsonText_400Regular,
   CrimsonText_600SemiBold,
-  CrimsonText_700Bold, 
-} from '@expo-google-fonts/crimson-text'
-
-
-const httpLink = createHttpLink({
-  uri: "http://192.168.43.212:5000",
-});
-
-const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-});
+  CrimsonText_700Bold,
+  useFonts,
+} from "@expo-google-fonts/crimson-text";
+import AppLoading from "expo-app-loading";
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "./src/backend/redux/reducers/store";
+import Root from "./src/navigation/Root";
 
 export default function App() {
   let [fontsLoaded, error] = useFonts({
@@ -39,16 +23,14 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <ApolloProvider client={client}>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <View style={styles.container}>
-            <Root />
-            <StatusBar style="auto" />
-          </View>
-        </PersistGate>
-      </Provider>
-    </ApolloProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <View style={styles.container}>
+          <Root />
+          <StatusBar style="auto" />
+        </View>
+      </PersistGate>
+    </Provider>
   );
 }
 

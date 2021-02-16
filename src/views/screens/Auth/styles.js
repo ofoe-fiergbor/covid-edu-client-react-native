@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
     goButton:{
         marginHorizontal: dimensions.margin.xl,
-        backgroundColor: colors.google,
+        backgroundColor: colors.red,
         marginVertical: dimensions.margin.sm,
         borderRadius: dimensions.radius.xs
     },

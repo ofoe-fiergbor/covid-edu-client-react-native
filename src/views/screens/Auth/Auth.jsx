@@ -1,10 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
+import { Image, ImageBackground, Text, View } from "react-native";
 import banner from "../../../../assets/images/jpg/banner3.jpg";
-import styles from "./styles";
-import Button from "../../components/button/Button";
 import logo from "../../../../assets/images/png/logo.png";
-const Auth = ({ navigation: { navigate } }) => {
+import Button from "../../components/button/Button";
+import styles from "./styles";
+import { loginWithGoogle } from "../../../backend/redux/actions/authAction";
+import {connect} from 'react-redux'
+
+
+
+const Auth = ({ navigation: { navigate }, loginWithGoogle }) => {
+  
   return (
     <ImageBackground
       source={banner}
@@ -19,23 +25,21 @@ const Auth = ({ navigation: { navigate } }) => {
           </Text>
         </View>
         <View style={styles.authButtons}>
-         
           <Button
             buttonName="Continue with google"
-            onPress={() => navigate("drawer")}
+            onPress={() => loginWithGoogle()}
             buttonStyle={styles.goButton}
             textStyle={styles.buttonText}
           />
-           <Button
+          <Button
             buttonName="Continue with facebook"
-            onPress={() => navigate("drawer")}
+            onPress={() => console.log("object")}
             buttonStyle={styles.fbButton}
             textStyle={styles.buttonText}
           />
-        
         </View>
       </View>
     </ImageBackground>
   );
 };
-export default Auth;
+export default connect(null, {loginWithGoogle})(Auth);

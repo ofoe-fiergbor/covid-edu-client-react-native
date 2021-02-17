@@ -15,6 +15,7 @@ const colors = {
     mask: "#e38030",
     blueGradient: "rgba(60,88,250,0.7)",
     darkGradient: "rgba(0,0,0,0.6)",
+    whiteGradient: "rgba(225,225,225, 0.8)"
   };
   
   export default colors;

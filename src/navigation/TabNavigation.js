@@ -10,16 +10,17 @@ const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
-    <Tab.Navigator initialRouteName="post" shifting={true}>
+    <Tab.Navigator initialRouteName="post" shifting={true}   activeColor="#3b5998"
+    inactiveColor="#aaa">
       <Tab.Screen
         name="post"
         component={Post}
         options={{
           tabBarLabel: "Views",
           tabBarIcon: ({ color }) => (
-            <Entypo name="list" size={26} color={color} />
+            <Entypo name="list" size={24} color={color} />
           ),
-          tabBarColor: colors.blue,
+          tabBarColor: colors.whiteGradient,
         }}
       />
       <Tab.Screen
@@ -28,9 +29,9 @@ const TabNavigation = () => {
         options={{
           tabBarLabel: "News",
           tabBarIcon: ({ color }) => (
-            <Entypo name="news" size={26} color={color} />
+            <Entypo name="news" size={24} color={color} />
           ),
-          tabBarColor: colors.purple,
+          tabBarColor: colors.whiteGradient,
         }}
       />
       <Tab.Screen
@@ -39,9 +40,9 @@ const TabNavigation = () => {
         options={{
           tabBarLabel: "Tracker",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="linechart" size={26} color={color} />
+            <AntDesign name="linechart" size={24} color={color} />
           ),
-          tabBarColor: colors.darkBlue,
+          tabBarColor: colors.whiteGradient,
         }}
       />
     </Tab.Navigator>

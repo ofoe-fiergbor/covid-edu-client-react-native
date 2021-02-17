@@ -59,10 +59,10 @@ const dimensions = {
     elevation: 1,
     borderWidth: 1,
     shadowOpacity: 1,
-    shadowRadius: 2.84,
-    shadowColor: colors.white,
+    shadowRadius: 20,
+    shadowColor: colors.black,
     borderColor: colors.white,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 10 },
   },
   bottomSheetHeading: {
     textTransform: "capitalize",

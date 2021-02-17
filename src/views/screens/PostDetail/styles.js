@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
    userInfoName:{
        color: colors.black,
        fontFamily: 'Bold',
-       fontSize: dimensions.font.md,
+       fontSize: dimensions.font.sm,
    },
    userInfoEmail:{
        color: colors.gray,

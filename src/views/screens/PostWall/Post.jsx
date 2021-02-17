@@ -1,15 +1,10 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StatusBar,
-  FlatList,
-} from "react-native";
+import { View, Text, StatusBar, FlatList } from "react-native";
 import PostDetail from "../PostDetail/PostDetail";
 import { colors, dimensions } from "../../../constants";
-
-
+import Button from "../../components/button/Button";
+import styles from "./styles";
+import AddButton from "../../components/AddButton/AddButton";
 const Post = () => {
   const DATA = [
     {
@@ -67,7 +62,7 @@ const Post = () => {
       lastName: "Brown",
       email: "lyb@ttt.com",
       date: "12 May 2020",
-      text: 
+      text:
         "Lorem, ipsum dolor sit amet consectetur elit. Suscipit corporis velit eligendi nesciunt expedita itaque, perferendis repellat fugiat magnam Lorem ipsum dolor sit amet consecte fuga!",
       image: require("../../../../assets/images/dummy/female4.jpg"),
       id: "6",
@@ -105,13 +100,14 @@ const Post = () => {
   ];
   return (
     <View style={{ flex: 1, backgroundColor: colors.whiteGradient }}>
+      
       <StatusBar auto />
       <FlatList
         data={DATA}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{
           padding: dimensions.padding.sm,
-          paddingTop: StatusBar.currentHeight || 42
+          paddingTop: StatusBar.currentHeight || 42,
         }}
         renderItem={({ item }) => {
           return (
@@ -126,6 +122,7 @@ const Post = () => {
           );
         }}
       />
+      <AddButton/>
     </View>
   );
 };

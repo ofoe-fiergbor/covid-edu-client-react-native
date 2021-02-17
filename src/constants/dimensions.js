@@ -8,6 +8,7 @@ const dimensions = {
     lg: 20,
     xl: 30,
     xxl: 60,
+    xxxl: 70
   },
   margin: {
     xs: 5,
@@ -16,6 +17,7 @@ const dimensions = {
     lg: 20,
     xl: 30,
     xxl: 50,
+    xxxl: 65
   },
   font: {
     xs: 13,

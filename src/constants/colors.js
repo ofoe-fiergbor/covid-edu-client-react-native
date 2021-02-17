@@ -13,7 +13,7 @@ const colors = {
     darkBlue: "#0b357d",
     wash: "#e66140",
     mask: "#e38030",
-    blueGradient: "rgba(60,88,250,0.7)",
+    blueGradient: "rgba(59,89,152,0.9)",
     darkGradient: "rgba(0,0,0,0.6)",
     whiteGradient: "rgba(225,225,225, 0.8)"
   };

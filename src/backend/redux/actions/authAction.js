@@ -1,7 +1,7 @@
 import firebase from "../../firebase/config";
 import * as Google from "expo-google-app-auth";
 import keys from "../../firebase/keys";
-import types from '../types'
+import types from "../types";
 
 export const loginWithGoogle = () => {
   return async (dispatch) => {

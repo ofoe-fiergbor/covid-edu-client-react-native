@@ -1,7 +1,7 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Entypo, AntDesign } from "@expo/vector-icons";
-import {colors} from "../constants"
+import { colors } from "../constants";
 import Post from "../views/screens/PostWall/Post";
 import News from "../views/screens/NewsWall/News";
 import Tracker from "../views/screens/Tracker/Tracker";
@@ -10,8 +10,12 @@ const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
-    <Tab.Navigator initialRouteName="post" shifting={true}   activeColor="#3b5998"
-    inactiveColor="#aaa">
+    <Tab.Navigator
+      initialRouteName="post"
+      shifting={true}
+      activeColor="#3b5998"
+      inactiveColor="#aaa"
+    >
       <Tab.Screen
         name="post"
         component={Post}

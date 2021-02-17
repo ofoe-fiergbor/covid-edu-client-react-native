@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Animated } from "react-native";
 import styles from "./styles";
 import { FontAwesome } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -11,7 +11,7 @@ const PostDetail = ({ firstName, lastName, email, date, text, image }) => {
     setLike(!like);
   };
   return (
-    <View style={styles.card}>
+    <Animated.View style={styles.card}>
       {/* contains image, name, date and email */}
       <View style={styles.cardInnerTop}>
         <View style={styles.cardHeadLeft}>
@@ -42,7 +42,7 @@ const PostDetail = ({ firstName, lastName, email, date, text, image }) => {
 
         <FontAwesome name="share-square-o" size={20} style={styles.icon} />
       </View>
-    </View>
+    </Animated.View>
   );
 };
 

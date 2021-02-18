@@ -4,7 +4,9 @@ import { View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { colors } from "../constants";
 import PostDetail from "../views/screens/PostDetail/PostDetail";
-import TipDetail from "../views/screens/TipDetail/TipDetail";
+import Tips from "../views/screens/Tips/Tips";
+import Faq from "../views/screens/FAQ/Faq";
+import AllPosts from '../views/screens/AllPosts/AllPosts'
 import Landing from "../views/screens/Landing/Landing";
 import TabNavigation from "./TabNavigation";
 import Auth from "../views/screens/Auth/Auth";
@@ -32,7 +34,9 @@ const AuthStack = ({ user }) => {
         >
           <Stack.Screen name="tabs" component={TabNavigation} />
           <Stack.Screen name="postDetail" component={PostDetail} />
-          <Stack.Screen name="tipDetail" component={TipDetail} />
+          <Stack.Screen name="tips" component={Tips} />
+          <Stack.Screen name="faq" component={Faq} />
+          <Stack.Screen name="allPosts" component={AllPosts} />
         </Stack.Navigator>
       )}
     </View>

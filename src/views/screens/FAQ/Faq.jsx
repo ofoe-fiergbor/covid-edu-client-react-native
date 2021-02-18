@@ -3,8 +3,8 @@ import { View, Text } from 'react-native'
 
 const Faq = () => {
     return (
-        <View>
-            <Text></Text>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text>Hello Faq</Text>
         </View>
     )
 }

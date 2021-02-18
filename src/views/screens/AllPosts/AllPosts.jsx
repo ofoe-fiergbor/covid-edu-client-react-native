@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const Tips = () => {
+const AllPosts = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Hello Tips Wall</Text>
+      <Text>Hello All Posts</Text>
     </View>
   );
 };
 
-export default Tips;
+export default AllPosts;

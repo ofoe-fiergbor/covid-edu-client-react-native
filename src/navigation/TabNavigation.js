@@ -5,6 +5,7 @@ import { colors } from "../constants";
 import Post from "../views/screens/PostWall/Post";
 import News from "../views/screens/NewsWall/News";
 import Tracker from "../views/screens/Tracker/Tracker";
+import Profile from "../views/screens/Profile/Profile"
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -12,7 +13,6 @@ const TabNavigation = () => {
   return (
     <Tab.Navigator
       initialRouteName="post"
-      shifting={true}
       activeColor="#3b5998"
       inactiveColor="#aaa"
     >
@@ -45,6 +45,17 @@ const TabNavigation = () => {
           tabBarLabel: "Tracker",
           tabBarIcon: ({ color }) => (
             <AntDesign name="linechart" size={24} color={color} />
+          ),
+          tabBarColor: colors.whiteGradient,
+        }}
+      />
+      <Tab.Screen
+        name="profile"
+        component={Profile}
+        options={{
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="user" size={24} color={color} />
           ),
           tabBarColor: colors.whiteGradient,
         }}

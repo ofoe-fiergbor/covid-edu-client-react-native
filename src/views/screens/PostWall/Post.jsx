@@ -4,17 +4,11 @@ import {
   getAllPosts,
 } from "../../../backend/redux/actions/postAction";
 import PostModalContent from "../../components/postModalContent/PostModalContent";
-import {
-  FlatList,
-  Modal,
-  StatusBar,
-  View,
-} from "react-native";
+import { FlatList, Modal, StatusBar, View } from "react-native";
 import AddButton from "../../components/AddButton/AddButton";
 import { colors, dimensions } from "../../../constants";
 import PostDetail from "../PostDetail/PostDetail";
 import { connect } from "react-redux";
-
 
 const Post = ({ addNewPost, loading, post, getAllPosts, navigation }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,7 +22,6 @@ const Post = ({ addNewPost, loading, post, getAllPosts, navigation }) => {
     setIsModalOpen(false);
   };
 
-  
   return (
     <View style={{ flex: 1, backgroundColor: colors.whiteGradient }}>
       <StatusBar auto />
@@ -53,6 +46,7 @@ const Post = ({ addNewPost, loading, post, getAllPosts, navigation }) => {
           );
         }}
       />
+
       <AddButton onPress={() => setIsModalOpen(true)} />
 
       <Modal transparent={true} visible={isModalOpen}>

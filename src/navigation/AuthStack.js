@@ -1,16 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
 import { View } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { colors } from "../constants";
-import PostDetail from "../views/screens/PostDetail/PostDetail";
-import Tips from "../views/screens/Tips/Tips";
+import { connect } from "react-redux";
 import Faq from "../views/screens/FAQ/Faq";
-import AllPosts from '../views/screens/AllPosts/AllPosts'
-import Landing from "../views/screens/Landing/Landing";
 import TabNavigation from "./TabNavigation";
+import Tips from "../views/screens/Tips/Tips";
 import Auth from "../views/screens/Auth/Auth";
+import Landing from "../views/screens/Landing/Landing";
+import AllPosts from '../views/screens/AllPosts/AllPosts'
+import { createStackNavigator } from "@react-navigation/stack";
+import PostDetail from "../views/screens/PostDetail/PostDetail";
 import SinglePost from "../views/screens/singlePost/SinglePost";
+import NewsDetail from "../views/screens/NewsDetail/NewsDetail";
 
 const Stack = createStackNavigator();
 
@@ -35,6 +35,7 @@ const AuthStack = ({ user }) => {
         >
           <Stack.Screen name="tabs" component={TabNavigation} />
           <Stack.Screen name="postDetail" component={PostDetail} />
+          <Stack.Screen name="newsDetail" component={NewsDetail}/>
           <Stack.Screen name="tips" component={Tips} />
           <Stack.Screen name="faq" component={Faq} />
           <Stack.Screen name="allPosts" component={AllPosts} />

@@ -5,6 +5,8 @@ import { colors, dimensions } from "../../../constants";
 import Button from "../../components/button/Button";
 import styles from "./styles";
 import AddButton from "../../components/AddButton/AddButton";
+import Header from "../../components/CustomHeader/Header";
+
 const Post = () => {
   const DATA = [
     {
@@ -100,9 +102,10 @@ const Post = () => {
   ];
   return (
     <View style={{ flex: 1, backgroundColor: colors.whiteGradient }}>
-      
+      <Header />
       <StatusBar auto />
       <FlatList
+        
         data={DATA}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{
@@ -122,7 +125,7 @@ const Post = () => {
           );
         }}
       />
-      <AddButton/>
+      <AddButton />
     </View>
   );
 };

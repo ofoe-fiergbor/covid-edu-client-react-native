@@ -1,10 +1,11 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import Header from '../../components/CustomHeader/Header'
 
 const Tracker = () => {
     return (
         <View>
-            <Text></Text>
+            <Header/>
         </View>
     )
 }

@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
         marginVertical: dimensions.margin.sm
     },
     itemText:{
-        fontFamily: "Bold",
+        fontFamily: "Regular",
         marginHorizontal: dimensions.margin.md,
         paddingTop: dimensions.padding.xs,
         fontSize: 18
     },
     goIcon:{
-        color: colors.black
+        color: colors.gray
     },
     chatIcon:{
         color: colors.red,

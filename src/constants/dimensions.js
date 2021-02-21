@@ -17,7 +17,8 @@ const dimensions = {
     lg: 20,
     xl: 30,
     xxl: 50,
-    xxxl: 65
+    xxxl: 65,
+    vl: 350
   },
   font: {
     xs: 13,
@@ -46,13 +47,16 @@ const dimensions = {
     xs: 25,
     sm: 45,
     md: 75,
+    mdlg: 100,
     lg: 120,
     xl: 140,
     xlx: 160,
+    xxlx: 225,
     xxl: 250,
     xxxl: 300,
+    xxxxl: 305
   },
-  inputHeight: 55,
+  inputHeight: 75,
   matchParent: "100%",
   halfParent: "50%",
   iconSize: 22,

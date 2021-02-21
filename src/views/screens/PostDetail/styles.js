@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
        fontFamily: 'Bold',
        fontSize: dimensions.font.sm,
    },
-   userInfoEmail:{
-       color: colors.gray,
-       fontFamily: 'Regular'
-   },
+//    userInfoEmail:{
+//        color: colors.gray,
+//        fontFamily: 'Regular'
+//    },
    cardHeadRightDate:{
        fontFamily: 'Regular',
        color: colors.darkGray
@@ -57,6 +57,8 @@ const styles = StyleSheet.create({
    },
    cardInnerButtom:{
        flexDirection: 'row',
+       justifyContent:'space-between'
+       
    },
    icon:{
        color: colors.blue,

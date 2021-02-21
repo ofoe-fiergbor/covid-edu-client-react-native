@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { View, Text, Image, Animated } from "react-native";
+import dayjs from "dayjs";
 import styles from "./styles";
-import { FontAwesome } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { FontAwesome, Feather } from "@expo/vector-icons";
+import { View, Text, Image, Animated } from "react-native";
+import {
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from "react-native-gesture-handler";
 
-const PostDetail = ({ firstName, lastName, email, date, text, image }) => {
+const PostDetail = ({ id, name, date, text, image, navigation, comments }) => {
+  // console.log(comments)
   const [like, setLike] = useState(false);
 
   const addLike = () => {
@@ -12,35 +17,57 @@ const PostDetail = ({ firstName, lastName, email, date, text, image }) => {
   };
   return (
     <Animated.View style={styles.card}>
-      {/* contains image, name, date and email */}
       <View style={styles.cardInnerTop}>
         <View style={styles.cardHeadLeft}>
-          <Image source={image} style={styles.image} />
+          <Image source={{ uri: image }} style={styles.image} />
+
           <View style={styles.userInfo}>
             <Text style={styles.userInfoName} numberOfLines={1}>
-              {firstName} {lastName}
+              {name}
             </Text>
-            <Text style={styles.userInfoEmail}>{email}</Text>
+            <Text style={styles.cardHeadRightDate}>
+              {dayjs(date).format("DD-MMM-YY")}
+            </Text>
           </View>
         </View>
-        <View style={styles.cardHeadRight}>
-          <Text style={styles.cardHeadRightDate}>{date}</Text>
+      </View>
+
+      <TouchableWithoutFeedback
+        onPress={() =>
+          navigation.navigate("singlePost", {
+            name,
+            date,
+            text,
+            image,
+            id,
+            comments,
+          })
+        }
+      >
+        <View style={styles.cardInnerMid}>
+          <Text
+            numberOfLines={3}
+            selectable={true}
+            style={styles.cardInnerMidText}
+          >
+            {text}
+          </Text>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
 
-      {/* contains text */}
-      <View style={styles.cardInnerMid}>
-        <Text style={styles.cardInnerMidText}>{text}</Text>
-      </View>
-
-      {/* contains icons */}
       <View style={styles.cardInnerButtom}>
-        <FontAwesome name="comment-o" size={20} style={styles.icon} />
+        <View style={{ flexDirection: "row" }}>
+          <FontAwesome name="comment-o" size={20} style={styles.icon} />
+          {comments && <Text>{comments.length}</Text>}
+        </View>
         <TouchableOpacity onPress={() => addLike()}>
-          <FontAwesome name={like ? 'heart' : 'heart-o'} size={20} style={styles.icon} />
+          <FontAwesome
+            name={like ? "heart" : "heart-o"}
+            size={20}
+            style={styles.icon}
+          />
         </TouchableOpacity>
-
-        <FontAwesome name="share-square-o" size={20} style={styles.icon} />
+        <Feather name="share" size={20} style={styles.icon} />
       </View>
     </Animated.View>
   );

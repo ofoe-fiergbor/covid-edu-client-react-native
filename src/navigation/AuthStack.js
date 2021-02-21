@@ -10,6 +10,7 @@ import AllPosts from '../views/screens/AllPosts/AllPosts'
 import Landing from "../views/screens/Landing/Landing";
 import TabNavigation from "./TabNavigation";
 import Auth from "../views/screens/Auth/Auth";
+import SinglePost from "../views/screens/singlePost/SinglePost";
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,7 @@ const AuthStack = ({ user }) => {
           <Stack.Screen name="tips" component={Tips} />
           <Stack.Screen name="faq" component={Faq} />
           <Stack.Screen name="allPosts" component={AllPosts} />
+          <Stack.Screen name="singlePost" component={SinglePost} />
         </Stack.Navigator>
       )}
     </View>

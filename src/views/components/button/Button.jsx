@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./styles";
-import { View, Text, TouchableOpacity } from "react-native";
+import {TouchableOpacity } from "react-native";
 import Label from "../label/Label";
 
-const button = ({ buttonName, buttonStyle, onPress, textStyle }) => {
+const button = ({ buttonName, buttonStyle, onPress, textStyle, isDisabled=false }) => {
   return (
-    <TouchableOpacity style={[styles.container, buttonStyle]} onPress={onPress}>
+    <TouchableOpacity style={[styles.container, buttonStyle]} disabled={isDisabled} onPress={onPress}>
       <Label text={buttonName} textStyle={[styles.text, textStyle]} />
     </TouchableOpacity>
   );

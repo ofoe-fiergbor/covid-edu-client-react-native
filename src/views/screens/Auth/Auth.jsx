@@ -4,13 +4,16 @@ import banner from "../../../../assets/images/jpg/banner3.jpg";
 import logo from "../../../../assets/images/png/logo.png";
 import Button from "../../components/button/Button";
 import styles from "./styles";
-import { loginWithGoogle } from "../../../backend/redux/actions/authAction";
-import {connect} from 'react-redux'
+import {
+  loginWithGoogle,
+  loginWithFacebook,
+} from "../../../backend/redux/actions/authAction";
+import { connect } from "react-redux";
 
-
-
-const Auth = ({ navigation: { navigate }, loginWithGoogle }) => {
-  
+const Auth = ({
+  loginWithGoogle,
+  loginWithFacebook,
+}) => {
   return (
     <ImageBackground
       source={banner}
@@ -33,7 +36,7 @@ const Auth = ({ navigation: { navigate }, loginWithGoogle }) => {
           />
           <Button
             buttonName="Continue with facebook"
-            onPress={() => console.log("object")}
+            onPress={() => loginWithFacebook()}
             buttonStyle={styles.fbButton}
             textStyle={styles.buttonText}
           />
@@ -42,4 +45,4 @@ const Auth = ({ navigation: { navigate }, loginWithGoogle }) => {
     </ImageBackground>
   );
 };
-export default connect(null, {loginWithGoogle})(Auth);
+export default connect(null, { loginWithGoogle, loginWithFacebook })(Auth);

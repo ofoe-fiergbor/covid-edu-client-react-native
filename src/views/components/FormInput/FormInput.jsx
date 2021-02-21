@@ -3,13 +3,16 @@ import { TextInput } from "react-native";
 import styles from "./styles";
 
 const FormInput = ({
-  placeholder,
   value,
-  onChangeText,
-  textInputStyle,
   keyboard,
-  secureTextEntry=false,
-  maxLength
+  maxLength,
+  placeholder,
+  onChangeText,
+  numberOfLines,
+  textInputStyle,
+  autoFocus=true,
+  multiline = false,
+  secureTextEntry = false,
 }) => {
   return (
     <TextInput
@@ -17,6 +20,9 @@ const FormInput = ({
       value={value}
       maxLength={maxLength}
       onChangeText={onChangeText}
+      numberOfLines={numberOfLines}
+      multiline={multiline}
+      autoFocus={autoFocus}
       keyboardType={
         keyboard === "email"
           ? "email-address"
@@ -26,7 +32,6 @@ const FormInput = ({
       }
       style={[styles.textInput, textInputStyle]}
       secureTextEntry={secureTextEntry}
-    
     />
   );
 };

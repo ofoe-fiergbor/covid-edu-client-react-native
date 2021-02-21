@@ -10,4 +10,5 @@ export default keys = {
   messagingSenderId: "295922376111",
   appId: "1:295922376111:web:6e6032427be5579a4aa35a",
   measurementId: "G-RXWJ8NN1HC",
+  FACEBOOK_APP_ID: '258746382453975'
 };

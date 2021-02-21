@@ -11,18 +11,23 @@ import {
 import { connect } from "react-redux";
 import { logout } from "../../../backend/redux/actions/authAction";
 
-const Profile = ({ navigation: { navigate } }) => {
+const Profile = ({ navigation: { navigate }, logout, user, post }) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.topContainer}>
-        <Image source={man} style={styles.topContainerImage} />
-        <Text style={styles.topContainerName}>Leonado da Vinci</Text>
-        <Text style={styles.topContainerEmail}>leo@vinc.com</Text>
+        <Image
+          source={{ uri: `${user.photoUrl}` } ?? man}
+          style={styles.topContainerImage}
+        />
+        <Text style={styles.topContainerName}>{user.name}</Text>
+        <Text style={styles.topContainerEmail}>{user.email}</Text>
       </View>
       <View style={styles.bottomContainer}>
         <View style={styles.bottomContainerInner}>
           {/*********** All Posts ***********/}
-          <TouchableOpacity onPress={() => navigate("allPosts")}>
+          <TouchableOpacity
+            onPress={() => navigate("allPosts", { user, post })}
+          >
             <View style={styles.bottomContainerInnerView}>
               <View style={{ flexDirection: "row" }}>
                 <Ionicons
@@ -97,4 +102,10 @@ const Profile = ({ navigation: { navigate } }) => {
   );
 };
 
-export default connect(null, { logout })(Profile);
+const mapStateToProps = (state) => {
+  return {
+    user: state.auth.user,
+    post: state.post.post,
+  };
+};
+export default connect(mapStateToProps, { logout })(Profile);

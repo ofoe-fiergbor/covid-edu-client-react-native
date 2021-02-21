@@ -102,7 +102,7 @@ const Post = () => {
   ];
   return (
     <View style={{ flex: 1, backgroundColor: colors.whiteGradient }}>
-      <Header />
+      {/* <Header /> */}
       <StatusBar auto />
       <FlatList
         

@@ -12,7 +12,8 @@ const AllPosts = ({ route }) => {
   // console.log(ownPosts);
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Hello All Posts</Text>
+      <Text>{user.name}</Text>
+      <Text></Text>
     </View>
   );
 };

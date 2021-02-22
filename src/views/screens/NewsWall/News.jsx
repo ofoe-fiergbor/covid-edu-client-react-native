@@ -118,7 +118,6 @@ class News extends Component {
     } else {
       return (
         <View style={styles.container}>
-          <Header />
           <NewsHeader />
           <FlatList
             showsHorizontalScrollIndicator={false}

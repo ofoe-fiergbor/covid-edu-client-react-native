@@ -26,7 +26,8 @@ import {colors, dimensions} from '../../../constants'
        fontFamily: "Bold",
        fontSize: dimensions.font.md,
        marginLeft: dimensions.margin.sm,
-       color: colors.blue
+       color: colors.blue,
+       marginTop: 20
    },
    bottomNewsHeader:{
     fontFamily: "Bold",

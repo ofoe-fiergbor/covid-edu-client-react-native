@@ -6,7 +6,8 @@ import {
   FlatList,
   StatusBar,
   ActivityIndicator, 
-  Share
+  Share,
+  LogBox
 } from "react-native";
 import Header from "../../components/CustomHeader/Header";
 import { colors, dimensions } from "../../../constants";
@@ -15,7 +16,7 @@ import styles from "./styles";
 import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
 import NewsHeader from "../../components/CustomHeader/NewsHeader";
 import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
-
+LogBox.ignoreAllLogs();
 class News extends Component {
   constructor(props) {
     super(props);

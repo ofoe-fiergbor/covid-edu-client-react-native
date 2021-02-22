@@ -24,6 +24,7 @@ const dimensions = {
     xs: 13,
     sm: 15,
     md: 20,
+    mdd: 22,
     lg: 30,
     xl: 35,
     xxl: 40,

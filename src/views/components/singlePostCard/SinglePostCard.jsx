@@ -17,7 +17,7 @@ const SinglePostCard = ({ name, date, text, image, comments }) => {
       </View>
       <View style={styles.body}>
         <Hyperlink linkStyle={{ color: "#2980b9" }}>
-          <Text selectable={true}>{text}</Text>
+          <Text selectable={true} style={styles.bodyText}>{text}</Text>
         </Hyperlink>
       </View>
       <View style={styles.footer}>

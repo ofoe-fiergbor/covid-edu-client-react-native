@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     marginTop: dimensions.margin.xl,
     justifyContent: "center",
     alignItems: "center",
-    elevation: 2,
     height: 45,
     width: 45,
     position:'absolute'

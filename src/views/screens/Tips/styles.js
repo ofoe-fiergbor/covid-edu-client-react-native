@@ -11,43 +11,44 @@ const styles = StyleSheet.create({
     marginVertical: dimensions.margin.xs,
     borderRadius: dimensions.radius.xs,
     borderStartColor: colors.blue,
-    borderStartWidth: dimensions.radius.xs
+    borderStartWidth: dimensions.radius.xs,
   },
-  headerText:{
-      flex: 9,
-      fontFamily: 'Bold'
+  headerText: {
+    flex: 9,
+    fontFamily: "Bold",
   },
-  icon:{
-      flex: 1,
-      fontSize: dimensions.font.md,
-      color: colors.blue
-  },
-  icon2:{
+  icon: {
     flex: 1,
     fontSize: dimensions.font.md,
-    color: colors.red
-},
-  content:{
+    color: colors.blue,
+  },
+  icon2: {
+    flex: 1,
+    fontSize: dimensions.font.md,
+    color: colors.red,
+  },
+  content: {
     backgroundColor: colors.white,
     padding: dimensions.padding.sm,
-    fontFamily: 'Regular',
+    fontFamily: "Regular",
     borderRadius: dimensions.radius.xs,
   },
-  content2:{
+  content2: {
     backgroundColor: colors.white,
     padding: dimensions.padding.sm,
-    fontFamily: 'Regular',
+    fontFamily: "Regular",
     borderRadius: dimensions.radius.xs,
-    color: colors.blue
+    color: colors.blue,
   },
 
-  faqHeader:{
-      marginTop: dimensions.margin.md,
-      paddingVertical: dimensions.padding.md,
-      marginHorizontal: dimensions.margin.md,
-      fontFamily: "Bold",
-      fontSize: dimensions.font.mdd
-  }
+  faqHeader: {
+    marginTop: dimensions.margin.md,
+    paddingVertical: dimensions.padding.md,
+    marginHorizontal: dimensions.margin.md,
+    fontFamily: "Bold",
+    fontSize: dimensions.font.mdd,
+    color: colors.blue,
+  },
 });
 
 export default styles;

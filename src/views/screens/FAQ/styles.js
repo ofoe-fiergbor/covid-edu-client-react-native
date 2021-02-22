@@ -35,10 +35,13 @@ const styles = StyleSheet.create({
     
   },
   faqHeader:{
-      paddingVertical: dimensions.padding.md,
-      marginHorizontal: dimensions.margin.md,
-      fontFamily: "Bold",
-      fontSize: dimensions.font.mdd
+    marginTop: dimensions.margin.md,
+    paddingVertical: dimensions.padding.md,
+    marginHorizontal: dimensions.margin.md,
+    fontFamily: "Bold",
+    fontSize: dimensions.font.mdd,
+    color: colors.blue,
+
   }
 });
 

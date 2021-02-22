@@ -18,15 +18,19 @@ const styles = StyleSheet.create({
       marginRight: dimensions.margin.xs
   },
   name:{
-      fontWeight:'bold',
       fontSize: dimensions.font.md,
+      fontFamily: "Bold"
   },
   date:{
-      fontWeight:'bold',
-      color: colors.gray
+      fontFamily:'Regular',
+      color: colors.darkGray
   },
   body:{
       marginVertical: dimensions.margin.md
+  },
+  bodyText:{
+    fontFamily: "Regular",
+    fontSize: dimensions.font.sm
   },
   icon:{
     color: colors.blue,
@@ -36,7 +40,7 @@ const styles = StyleSheet.create({
 footer:{
     flexDirection:'row',
     borderBottomColor: colors.whiteGradient,
-    borderBottomWidth: dimensions.border.xl,
+    borderBottomWidth: dimensions.border.sm,
     paddingBottom: dimensions.padding.md,
     justifyContent:'space-between'
 }

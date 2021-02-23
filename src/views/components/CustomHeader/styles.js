@@ -4,12 +4,12 @@ import {colors, dimensions} from '../../../constants'
 
  const styles =StyleSheet.create({
     headerContainer:{
-        backgroundColor:colors.whiteGradient,
+        backgroundColor:colors.white,
         justifyContent: 'space-between',
         paddingHorizontal: dimensions.padding.sm,
         flexDirection: 'row',
         alignItems: 'center',
-        elevation: 50,
+        elevation: 30,
         paddingTop: StatusBar.currentHeight || 42,
     },
     headerImage:{
@@ -19,7 +19,7 @@ import {colors, dimensions} from '../../../constants'
     },
    headerText:{
        fontFamily: 'Bold',
-       fontSize: dimensions.font.lg,
+       fontSize: dimensions.font.md + 5,
        color: colors.blue
    },
    newsHeader:{

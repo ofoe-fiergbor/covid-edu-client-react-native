@@ -18,6 +18,7 @@ const dimensions = {
     xl: 30,
     xxl: 50,
     xxxl: 65,
+    vx: 160,
     vl: 350
   },
   font: {

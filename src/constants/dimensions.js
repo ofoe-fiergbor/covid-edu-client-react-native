@@ -18,12 +18,14 @@ const dimensions = {
     xl: 30,
     xxl: 50,
     xxxl: 65,
+    vx: 160,
     vl: 350
   },
   font: {
     xs: 13,
     sm: 15,
     md: 20,
+    mdd: 22,
     lg: 30,
     xl: 35,
     xxl: 40,
@@ -51,7 +53,7 @@ const dimensions = {
     lg: 120,
     xl: 140,
     xlx: 160,
-    xxlx: 225,
+    xxlx: 245,
     xxl: 250,
     xxxl: 300,
     xxxxl: 305

@@ -5,8 +5,9 @@ import {
   TouchableOpacity,
   FlatList,
   StatusBar,
-  ActivityIndicator, 
-  Share
+  ActivityIndicator,
+  Share,
+  LogBox,
 } from "react-native";
 import Header from "../../components/CustomHeader/Header";
 import { colors, dimensions } from "../../../constants";
@@ -15,14 +16,14 @@ import styles from "./styles";
 import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
 import NewsHeader from "../../components/CustomHeader/NewsHeader";
 import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
-
+LogBox.ignoreAllLogs();
 class News extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       news: [],
-      newsTwo:[],
+      newsTwo: [],
       loading: true,
     };
   }
@@ -50,8 +51,8 @@ class News extends Component {
         console.log(err);
       });
   };
-   //Fetch News Two
-   fetchNewsTwo = () => {
+  //Fetch News Two
+  fetchNewsTwo = () => {
     fetch(
       "https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=covid-19",
       {
@@ -117,7 +118,6 @@ class News extends Component {
     } else {
       return (
         <View style={styles.container}>
-          <Header />
           <NewsHeader />
           <FlatList
             showsHorizontalScrollIndicator={false}
@@ -144,15 +144,14 @@ class News extends Component {
           />
 
           <BottomNewsHeader />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={this.state.newsTwo}
-          keyExtractor={(item) => item.id}
-          
-          renderItem={({ item }) => {
-            return (
-              <BottomNewsDetail
-                image={item.media}
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={this.state.newsTwo}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => {
+              return (
+                <BottomNewsDetail
+                  image={item.media}
                   url={item.link}
                   title={item.title}
                   date={item.published_date}
@@ -160,10 +159,10 @@ class News extends Component {
                   source={item.author}
                   topic={item.topic}
                   article={this.sharearticletwo}
-              />
-            );
-          }}
-        />
+                />
+              );
+            }}
+          />
         </View>
       );
     }

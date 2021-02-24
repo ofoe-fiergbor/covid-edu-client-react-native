@@ -3,34 +3,38 @@ import { colors, dimensions } from "../../../constants";
 
 const styles = StyleSheet.create({
   main: {
-    minHeight: 100,
+    minHeight: 70,
     // backgroundColor:'orange',
     width: dimensions.matchParent,
-    marginTop: dimensions.margin.sm,
+    marginTop: dimensions.margin.xs,
   },
   head: {
     flexDirection: "row",
     height: 35,
   },
   profilePicture: {
-    height: 35,
-    width: 35,
+    height: 40,
+    width: 40,
     borderRadius: dimensions.radius.sm,
     marginRight: dimensions.margin.xs,
   },
   name: {
-    fontWeight: "bold",
+    fontFamily: 'Bold',
     fontSize: dimensions.font.xs,
   },
   date: {
+    fontFamily: 'Regular',
     fontSize: dimensions.font.xs,
-    fontWeight: "bold",
-    color: colors.gray,
+    color: colors.darkGray,
   },
   body: {
-    marginVertical: dimensions.margin.xs,
+    marginVertical: dimensions.margin.sm,
     borderBottomColor: colors.whiteGradient,
-    borderBottomWidth: dimensions.border.sm,
+    borderBottomWidth: dimensions.border.xs,
+    
+  },
+  bodyText:{
+    fontFamily: 'Regular'
   },
   icon: {
     color: colors.blue,

@@ -46,7 +46,6 @@ const PostDetail = ({ id, name, date, text, image, navigation, comments }) => {
       >
         <View style={styles.cardInnerMid}>
           <Text
-            numberOfLines={3}
             selectable={true}
             style={styles.cardInnerMidText}
           >

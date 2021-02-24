@@ -1,5 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, FlatList, StatusBar } from "react-native";
+import { colors, dimensions } from "../../../constants";
+import AllPostDetails from "./AllPostDetails";
+import styles from './styles'
 
 const AllPosts = ({ route }) => {
   const { post, user } = route.params;
@@ -11,8 +14,26 @@ const AllPosts = ({ route }) => {
 
   // console.log(ownPosts);
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Hello All Posts</Text>
+    <View style={{ flex: 1, backgroundColor: colors.whiteGradient }}>
+      <Text style={styles.postHead}>All Posts</Text>
+     <FlatList
+        data={ownPosts}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={{
+          padding: dimensions.padding.xs,
+        }}
+        renderItem={({ item }) => {
+          return (
+            <AllPostDetails
+              id={item.id}
+              name={item.name}
+              text={item.post}
+              date={item.timestamp}
+              image={item.photoUrl}
+            />
+          );
+        }}
+      />
     </View>
   );
 };

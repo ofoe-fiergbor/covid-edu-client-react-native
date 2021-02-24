@@ -6,8 +6,7 @@ import headimage from '../../../../assets/images/dummy/male1.jpg'
 const Header = () => {
     return (
         <View style={styles.headerContainer}>
-            <Text style={styles.headerText}>Educov</Text>
-            <Image source={headimage} style={styles.headerImage}/>
+            <Text style={styles.headerText}>Coronavirus Tracker</Text>
         </View>
     )
 }

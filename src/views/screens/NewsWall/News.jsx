@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ import NewsHeader from "../../components/CustomHeader/NewsHeader";
 import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
 import Skeleton from "../Skeleton/Skeleton";
 LogBox.ignoreAllLogs();
-class News extends Component {
+class News extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -117,7 +117,7 @@ class News extends Component {
             showsHorizontalScrollIndicator={false}
             horizontal={true}
             data={this.state.news}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item._id}
             contentContainerStyle={{
               paddingLeft: dimensions.padding.sm,
             }}
@@ -141,7 +141,7 @@ class News extends Component {
           <FlatList
             showsVerticalScrollIndicator={false}
             data={this.state.newsTwo}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item._id}
             renderItem={({ item }) => {
               return (
                 <BottomNewsDetail

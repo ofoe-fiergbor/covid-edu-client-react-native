@@ -120,6 +120,61 @@ const styles = StyleSheet.create({
     width: dimensions.image.xs,
     borderRadius: dimensions.radius.lg,
     marginVertical: dimensions.margin.xs - 2,
+  },
+  trackHeader:{
+    width: dimensions.image.xxlx,
+    height: dimensions.margin.md,
+    marginVertical: dimensions.margin.md + 15,
+    borderRadius: dimensions.radius.sm,
+    marginHorizontal: dimensions.margin.md
+  },
+  trackImageContainer:{
+    backgroundColor: colors.whiteGradient,
+    width: dimensions.matchParent,
+    flexDirection: 'row'
+  },
+  trackImage:{
+    width: dimensions.image.xl,
+    height: dimensions.image.xl,
+    margin: dimensions.padding.md
+  },
+  trackImageTextContainer:{
+    flexDirection: 'column',
+    marginTop: dimensions.margin.xxxl,
+    marginLeft: dimensions.margin.md + 5
+  },
+  trackImageText:{
+    width: dimensions.image.xl,
+    height: dimensions.margin.md,
+    borderRadius: dimensions.radius.sm,
+    marginBottom: 10
+  },
+  trackHeaderTwo:{
+    width: dimensions.image.xxlx,
+    height: dimensions.margin.md,
+    marginVertical: dimensions.margin.md,
+    borderRadius: dimensions.radius.sm,
+    marginHorizontal: dimensions.margin.md
+  },
+  trackTitle:{
+    width: dimensions.image.xxlx,
+    height: dimensions.margin.sm,
+    borderRadius: dimensions.radius.sm,
+    marginHorizontal: dimensions.margin.md
+  },
+  trackCardsContainer:{
+    marginTop: dimensions.margin.xl,
+    marginHorizontal: dimensions.margin.md
+  },
+  trackCards:{
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginBottom: dimensions.margin.md
+  },
+  trackCard:{
+    width: dimensions.image.xl + 15,
+    height: dimensions.image.xl - 45,
+    borderRadius: dimensions.radius.xs
   }
 });
 

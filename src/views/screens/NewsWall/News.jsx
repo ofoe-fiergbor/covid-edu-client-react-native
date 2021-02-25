@@ -31,7 +31,7 @@ class News extends PureComponent {
   //Fetch News One
   fetchNews = () => {
     fetch(
-      "https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=coronavirus",
+      "https://covid-19-news.p.rapidapi.com/v1/covid?q=coronavirus&lang=en&media=True",
       {
         method: "GET",
         headers: {
@@ -55,7 +55,7 @@ class News extends PureComponent {
   //Fetch News Two
   fetchNewsTwo = () => {
     fetch(
-      "https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=covid-19",
+      "https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&media=True",
       {
         method: "GET",
         headers: {
@@ -117,7 +117,7 @@ class News extends PureComponent {
             showsHorizontalScrollIndicator={false}
             horizontal={true}
             data={this.state.news}
-            keyExtractor={(item) => item._id}
+            keyExtractor={(item) => item.title}
             contentContainerStyle={{
               paddingLeft: dimensions.padding.sm,
             }}
@@ -129,7 +129,7 @@ class News extends PureComponent {
                   title={item.title}
                   date={item.published_date}
                   summary={item.summary}
-                  source={item.author}
+                  source={item.clean_url}
                   topic={item.topic}
                   article={this.sharearticle}
                 />
@@ -141,7 +141,7 @@ class News extends PureComponent {
           <FlatList
             showsVerticalScrollIndicator={false}
             data={this.state.newsTwo}
-            keyExtractor={(item) => item._id}
+            keyExtractor={(item) => item.summary}
             renderItem={({ item }) => {
               return (
                 <BottomNewsDetail

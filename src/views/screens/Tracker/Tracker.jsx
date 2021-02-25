@@ -5,6 +5,8 @@ import Header from "../../components/CustomHeader/Header";
 import styles from "./styles";
 import { ScrollView } from "react-native-gesture-handler";
 import bg from '../../../../assets/images/png/bg.png'
+import NewsSkeleton from "../Skeleton/NewsSkeleton";
+
 export default class Tracker extends Component {
   constructor(props) {
     super(props);
@@ -45,8 +47,8 @@ export default class Tracker extends Component {
   render() {
     if (this.state.loading) {
       return (
-        <View style={styles.activity}>
-          <ActivityIndicator size="large" color="#3b5998" />
+        <View style={{}}>
+          <NewsSkeleton/>
         </View>
       );
     } else {

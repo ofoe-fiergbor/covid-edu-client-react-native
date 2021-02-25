@@ -71,7 +71,7 @@ const SinglePost = ({ route, navigation, user, addNewComment }) => {
           placeholder={`Hi ${user.givenName}, type your comment here! `}
         />
         <TouchableOpacity onPress={() => submit()}>
-          <Ionicons name="ios-send" size={24} style={styles.icon} />
+          <Ionicons name="ios-send" size={20} style={styles.icon} />
         </TouchableOpacity>
       </View>
     </React.Fragment>

@@ -8,18 +8,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: colors.whiteGradient,
-    paddingHorizontal: dimensions.padding.lg,
+    paddingHorizontal: dimensions.padding.xl,
   },
   textBox: {
     height: 150,
     backgroundColor: colors.whiteGray,
     marginTop: dimensions.margin.xxxl,
-    borderRadius: dimensions.radius.sm,
+    borderRadius: dimensions.radius.xs,
+    paddingHorizontal: 10,
+    fontFamily: 'Regular',
+    fontSize: 15
   },
   buttonStyle: {
     backgroundColor: colors.blue,
     marginTop: dimensions.margin.lg,
     width: dimensions.matchParent,
+    height: 50,
+    borderRadius: dimensions.radius.xs
   },
   textStyle: {
     color: colors.white,

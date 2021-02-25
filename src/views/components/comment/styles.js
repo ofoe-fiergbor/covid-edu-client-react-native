@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: 'Bold',
     fontSize: dimensions.font.xs,
+    textTransform: 'capitalize'
   },
   date: {
     fontFamily: 'Regular',

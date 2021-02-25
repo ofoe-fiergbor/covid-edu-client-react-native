@@ -16,6 +16,7 @@ import styles from "./styles";
 import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
 import NewsHeader from "../../components/CustomHeader/NewsHeader";
 import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
+import Skeleton from "../Skeleton/Skeleton";
 LogBox.ignoreAllLogs();
 class News extends Component {
   constructor(props) {
@@ -104,15 +105,8 @@ class News extends Component {
   render() {
     if (this.state.loading) {
       return (
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#fff",
-          }}
-        >
-          <ActivityIndicator size="large" color="#3b5998" />
+        <View style={{}}>
+          <Skeleton />
         </View>
       );
     } else {

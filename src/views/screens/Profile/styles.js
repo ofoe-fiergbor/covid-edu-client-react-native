@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     
     topContainerName:{
         fontFamily: "Bold",
-        fontSize: dimensions.font.md + 5
+        fontSize: dimensions.font.md + 5,
+        textTransform: 'capitalize'
     },
     topContainerEmail:{
         fontFamily: "Regular",

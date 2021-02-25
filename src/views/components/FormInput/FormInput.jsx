@@ -13,6 +13,7 @@ const FormInput = ({
   autoFocus=true,
   multiline = false,
   secureTextEntry = false,
+  
 }) => {
   return (
     <TextInput

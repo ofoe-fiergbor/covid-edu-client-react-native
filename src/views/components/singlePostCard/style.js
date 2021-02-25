@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
   },
   name:{
       fontSize: dimensions.font.md,
-      fontFamily: "Bold"
+      fontFamily: "Bold",
+      textTransform: 'capitalize'
   },
   date:{
       fontFamily:'Regular',

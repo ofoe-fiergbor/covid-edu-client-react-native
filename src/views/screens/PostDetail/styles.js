@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
        color: colors.black,
        fontFamily: 'Bold',
        fontSize: dimensions.font.sm,
+       textTransform: 'capitalize'
    },
 //    userInfoEmail:{
 //        color: colors.gray,

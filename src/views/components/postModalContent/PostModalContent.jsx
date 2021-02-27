@@ -41,6 +41,7 @@ const PostModalContent = ({ onPostSubmit, addNewPost, user }) => {
         <Text style={styles.cancel}>X</Text>
       </TouchableOpacity>
       <FormInput
+      placeholder="What's Happening?"
         value={post}
         multiline={true}
         numberOfLines={100}

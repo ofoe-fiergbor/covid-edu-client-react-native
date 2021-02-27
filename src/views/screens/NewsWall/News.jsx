@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   View,
   Text,
@@ -16,8 +16,9 @@ import styles from "./styles";
 import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
 import NewsHeader from "../../components/CustomHeader/NewsHeader";
 import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
+import Skeleton from "../Skeleton/Skeleton";
 LogBox.ignoreAllLogs();
-class News extends Component {
+class News extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -30,7 +31,7 @@ class News extends Component {
   //Fetch News One
   fetchNews = () => {
     fetch(
-      "https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=coronavirus",
+      "https://covid-19-news.p.rapidapi.com/v1/covid?q=coronavirus&lang=en&media=True",
       {
         method: "GET",
         headers: {
@@ -54,7 +55,7 @@ class News extends Component {
   //Fetch News Two
   fetchNewsTwo = () => {
     fetch(
-      "https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=covid-19",
+      "https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&media=True",
       {
         method: "GET",
         headers: {
@@ -104,15 +105,8 @@ class News extends Component {
   render() {
     if (this.state.loading) {
       return (
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#fff",
-          }}
-        >
-          <ActivityIndicator size="large" color="#3b5998" />
+        <View style={{}}>
+          <Skeleton />
         </View>
       );
     } else {
@@ -123,7 +117,7 @@ class News extends Component {
             showsHorizontalScrollIndicator={false}
             horizontal={true}
             data={this.state.news}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.title}
             contentContainerStyle={{
               paddingLeft: dimensions.padding.sm,
             }}
@@ -135,7 +129,7 @@ class News extends Component {
                   title={item.title}
                   date={item.published_date}
                   summary={item.summary}
-                  source={item.author}
+                  source={item.clean_url}
                   topic={item.topic}
                   article={this.sharearticle}
                 />
@@ -147,7 +141,7 @@ class News extends Component {
           <FlatList
             showsVerticalScrollIndicator={false}
             data={this.state.newsTwo}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.summary}
             renderItem={({ item }) => {
               return (
                 <BottomNewsDetail

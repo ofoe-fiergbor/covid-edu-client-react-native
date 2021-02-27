@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
   icon: {
     color: colors.blue,
   },
+  commentInput:{
+    fontFamily: 'Regular',
+  }
 });
 
 export default styles;

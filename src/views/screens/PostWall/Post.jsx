@@ -35,13 +35,15 @@ const Post = ({ addNewPost, loading, post, getAllPosts, navigation }) => {
         renderItem={({ item }) => {
           return (
             <PostDetail
-              id={item.id}
-              name={item.name}
-              text={item.post}
-              date={item.timestamp}
-              image={item.photoUrl}
+              id={item?.id}
+              name={item?.name}
+              text={item?.post}
+              userId={item?.userId}
+              date={item?.timestamp}
+              image={item?.photoUrl}
               navigation={navigation}
-              comments={item.comments}
+              comments={item?.comments}
+              videoUrl={item?.videoUrl}
             />
           );
         }}

@@ -30,7 +30,7 @@ const AuthStack = ({ user }) => {
         </Stack.Navigator>
       ) : (
         <Stack.Navigator
-          initialRouteName="landing"
+          initialRouteName="tabs"
           screenOptions={screenOptions}
         >
           <Stack.Screen name="tabs" component={TabNavigation} />

@@ -16,15 +16,25 @@ const styles = StyleSheet.create({
     marginTop: dimensions.margin.xxxl,
     borderRadius: dimensions.radius.xs,
     paddingHorizontal: 10,
-    fontFamily: 'Regular',
-    fontSize: 15
+    fontFamily: "Regular",
+    fontSize: 15,
+  },
+  videoUrlTextBox: {
+    backgroundColor: colors.whiteGray,
+    marginTop: dimensions.margin.md,
+    height: 40,
+    borderRadius: dimensions.radius.xs,
+    paddingHorizontal: 10,
+    fontFamily: "Regular",
+    fontSize: 15,
+    color: colors.black,
   },
   buttonStyle: {
     backgroundColor: colors.blue,
     marginTop: dimensions.margin.lg,
     width: dimensions.matchParent,
     height: 50,
-    borderRadius: dimensions.radius.xs
+    borderRadius: dimensions.radius.xs,
   },
   textStyle: {
     color: colors.white,

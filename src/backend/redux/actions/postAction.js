@@ -12,6 +12,7 @@ export const addNewPost = (newPost) => {
             ...newPost,
             timestamp: new Date().toISOString(),
             comments: [],
+            likes: [],
           });
       } catch (error) {
         console.log(error);
@@ -38,6 +39,59 @@ export const addNewComment = (newComment) => {
     }
   };
 };
+
+// export const likePost = (like) => {
+//   return async () => {
+//     try {
+//       await firebase
+//         .firestore()
+//         .collection("post")
+//         .doc(like.id)
+//         .update({
+//           likes: firebase.firestore.FieldValue.arrayUnion({
+//             ...like,
+//             timestamp: new Date().toISOString(),
+//           }),
+//         });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
+
+// export const unLikePost = (like) => {
+//   return async () => {
+
+//     try {
+//       // console.log(object)
+//       await firebase
+//         .firestore()
+//         .collection("post")
+//         .doc(like.id)
+//         .update({
+//           likes: firebase.firestore.FieldValue.arrayRemove(like.likeId),
+//         });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
+
+export const deletePost = (postId) => {
+  return async () => {
+    firebase
+      .firestore()
+      .collection("post")
+      .doc(postId)
+      .delete()
+      .then(() => {
+        console.log("Document successfully deleted!");
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+
 
 export const getAllPosts = () => {
   return async (dispatch) => {

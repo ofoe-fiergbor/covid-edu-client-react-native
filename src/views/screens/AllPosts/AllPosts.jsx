@@ -4,12 +4,12 @@ import { colors, dimensions } from "../../../constants";
 import AllPostDetails from "./AllPostDetails";
 import styles from './styles'
 
-const AllPosts = ({ route }) => {
+const AllPosts = ({ route, navigation }) => {
   const { post, user } = route.params;
 
   let ownPosts = [];
 
-  post.map((i) => i.userId === user.id && ownPosts.push(i));
+  post.map((i) => i.userId === user?.id && ownPosts.push(i));
 
 
   // console.log(ownPosts);
@@ -30,6 +30,8 @@ const AllPosts = ({ route }) => {
               text={item.post}
               date={item.timestamp}
               image={item.photoUrl}
+              userId={item.userId}
+              navigation={navigation}
             />
           );
         }}

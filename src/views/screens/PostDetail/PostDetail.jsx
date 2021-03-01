@@ -66,8 +66,8 @@ const PostDetail = ({
     image,
     comments,
     videoUrl,
-    userId
-  }
+    userId,
+  };
   return (
     <Root>
       <Animated.View style={styles.card}>
@@ -92,9 +92,7 @@ const PostDetail = ({
         </View>
 
         <TouchableWithoutFeedback
-          onPress={() =>
-            navigation.navigate("singlePost", routeItems)
-          }
+          onPress={() => navigation.navigate("singlePost", routeItems)}
         >
           <View style={styles.cardInnerMid}>
             <Text selectable={true} style={styles.cardInnerMidText}>
@@ -102,14 +100,12 @@ const PostDetail = ({
             </Text>
           </View>
         </TouchableWithoutFeedback>
-        {videoUrl && <YoutubeIframe videoUrl={videoUrl} />}
+        {videoUrl ? <YoutubeIframe videoUrl={videoUrl} /> : null}
 
         <View style={styles.cardInnerButtom}>
           <View style={{ flexDirection: "row" }}>
             <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("singlePost", routeItems)
-              }
+              onPress={() => navigation.navigate("singlePost", routeItems)}
             >
               <FontAwesome name="comment-o" size={20} style={styles.icon} />
             </TouchableOpacity>

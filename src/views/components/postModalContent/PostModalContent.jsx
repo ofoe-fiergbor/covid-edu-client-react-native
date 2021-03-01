@@ -19,6 +19,7 @@ const PostModalContent = ({ onPostSubmit, addNewPost, user }) => {
         "COVID_REAL" +
         Math.random().toString(36).substr(2, 9) +
         "COVID_EDU_APP_POST";
+
       let urlRegex = new RegExp("^https://youtu.be/");
 
       if (!videoUrl.match(urlRegex) && videoUrl !== "") {

@@ -1,22 +1,17 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View, ActivityIndicator,Image } from "react-native";
+import React, { Component, useState, useEffect } from "react";
+import { View, Image } from "react-native";
 import TrackerTemplate from "./TrackerTemplate";
 import Header from "../../components/CustomHeader/Header";
 import styles from "./styles";
 import { ScrollView } from "react-native-gesture-handler";
-import bg from '../../../../assets/images/png/bg.png'
+import bg from "../../../../assets/images/png/bg.png";
 import NewsSkeleton from "../Skeleton/NewsSkeleton";
 
-export default class Tracker extends Component {
-  constructor(props) {
-    super(props);
+export default function Tracker() {
+  const [updates, setUpdates] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    this.state = {
-      updates: [],
-      loading: true,
-    };
-  }
-  fetchUpdates = () => {
+  const fetchUpdates = () => {
     fetch("https://mazitekgh.com/covid19/v1/")
       .then((res) => res.json())
       .then((response) => {
@@ -32,35 +27,32 @@ export default class Tracker extends Component {
           globalRecoveries: response.global.recovered,
           globalFatalities: response.global.deaths,
         };
-        this.setState({
-          updates: coronaData,
-          loading: false,
-        });
+
+        setUpdates(coronaData);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  componentDidMount() {
-    this.fetchUpdates();
-  }
-  render() {
-    if (this.state.loading) {
-      return (
-        <View style={{}}>
-          <NewsSkeleton/>
-        </View>
-      );
-    } else {
-      return (
+
+  useEffect(() => {
+    fetchUpdates();
+  }, []);
+
+  return (
+    <React.Fragment>
+      {loading ? (
+        <NewsSkeleton />
+      ) : (
         <View style={styles.container}>
           <Header />
           <ScrollView>
-            <Image source={bg} style={styles.image}/>
-            <TrackerTemplate coronaData={this.state.updates} />
+            <Image source={bg} style={styles.image} />
+            <TrackerTemplate coronaData={updates} />
           </ScrollView>
         </View>
-      );
-    }
-  }
+      )}
+    </React.Fragment>
+  );
 }

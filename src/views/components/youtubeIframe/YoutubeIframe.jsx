@@ -4,22 +4,19 @@ import YoutubePlayer from "react-native-youtube-iframe";
 import styles from "./styles";
 
 export default function YoutubeIframe({ videoUrl }) {
+  const [playing, setPlaying] = useState(false);
+
   let videoId = "";
   if (videoUrl) {
     let tempArr = videoUrl.split("https://youtu.be/");
     videoId = tempArr[1];
   }
 
-  const [playing, setPlaying] = useState(false);
-
   const onStateChange = useCallback((state) => {
     if (state === "ended") {
       setPlaying(false);
-      alert("video has finished playing!");
     }
   }, []);
-
- 
 
   const togglePlaying = useCallback(() => {
     setPlaying((prev) => !prev);
@@ -33,9 +30,15 @@ export default function YoutubeIframe({ videoUrl }) {
         videoId={videoId}
         onChangeState={onStateChange}
       />
-      <TouchableOpacity onPress={togglePlaying} style={styles.button}>
-        <Text style={styles.buttonText}>{playing ? "pause" : "play"}</Text>
-      </TouchableOpacity>
+      {playing ? (
+        <TouchableOpacity onPress={togglePlaying} style={styles.button}>
+          <Text style={styles.buttonText}>Pause</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity onPress={togglePlaying} style={styles.button}>
+          <Text style={styles.buttonText}>Play</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }

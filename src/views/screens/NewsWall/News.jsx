@@ -1,35 +1,22 @@
-import React, { PureComponent } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  StatusBar,
-  ActivityIndicator,
-  Share,
-  LogBox,
-} from "react-native";
-import Header from "../../components/CustomHeader/Header";
-import { colors, dimensions } from "../../../constants";
-import NewsDetail from "../NewsDetail/NewsDetail";
-import styles from "./styles";
-import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
-import NewsHeader from "../../components/CustomHeader/NewsHeader";
+import React, { useState, useEffect } from "react";
 import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
+import NewsHeader from "../../components/CustomHeader/NewsHeader";
+import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
+import { View, FlatList, Share, LogBox } from "react-native";
+import NewsDetail from "../NewsDetail/NewsDetail";
+import { dimensions } from "../../../constants";
 import Skeleton from "../Skeleton/Skeleton";
-LogBox.ignoreAllLogs();
-class News extends PureComponent {
-  constructor(props) {
-    super(props);
+import styles from "./styles";
 
-    this.state = {
-      news: [],
-      newsTwo: [],
-      loading: true,
-    };
-  }
+LogBox.ignoreAllLogs();
+
+function News() {
+  const [news, setNews] = useState([]);
+  const [newsTwo, setNewsTwo] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   //Fetch News One
-  fetchNews = () => {
+  const fetchNews = () => {
     fetch(
       "https://covid-19-news.p.rapidapi.com/v1/covid?q=coronavirus&lang=en&media=True",
       {
@@ -43,17 +30,15 @@ class News extends PureComponent {
     )
       .then((res) => res.json())
       .then((response) => {
-        this.setState({
-          news: response.articles,
-          loading: false,
-        });
+        setNews(response.articles);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
   //Fetch News Two
-  fetchNewsTwo = () => {
+  const fetchNewsTwo = () => {
     fetch(
       "https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&media=True",
       {
@@ -67,22 +52,21 @@ class News extends PureComponent {
     )
       .then((res) => res.json())
       .then((response) => {
-        this.setState({
-          newsTwo: response.articles,
-          loading: false,
-        });
+        setNewsTwo(response.articles);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  componentDidMount() {
-    this.fetchNews();
-    this.fetchNewsTwo();
-  }
+
+  useEffect(() => {
+    fetchNews();
+    fetchNewsTwo();
+  }, []);
 
   //Share Article One
-  sharearticle = async (article) => {
+  const sharearticle = async (article) => {
     try {
       await Share.share({
         message: "Kindly check this article out " + article,
@@ -93,7 +77,7 @@ class News extends PureComponent {
   };
 
   //Share Article Two
-  sharearticletwo = async (article) => {
+  const sharearticletwo = async (article) => {
     try {
       await Share.share({
         message: "Kindly check this article out " + article,
@@ -102,21 +86,18 @@ class News extends PureComponent {
       console.log(error);
     }
   };
-  render() {
-    if (this.state.loading) {
-      return (
-        <View style={{}}>
-          <Skeleton />
-        </View>
-      );
-    } else {
-      return (
+
+  return (
+    <React.Fragment>
+      {loading ? (
+        <Skeleton />
+      ) : (
         <View style={styles.container}>
           <NewsHeader />
           <FlatList
             showsHorizontalScrollIndicator={false}
             horizontal={true}
-            data={this.state.news}
+            data={news}
             keyExtractor={(item) => item.title}
             contentContainerStyle={{
               paddingLeft: dimensions.padding.sm,
@@ -131,7 +112,7 @@ class News extends PureComponent {
                   summary={item.summary}
                   source={item.clean_url}
                   topic={item.topic}
-                  article={this.sharearticle}
+                  article={sharearticle}
                 />
               );
             }}
@@ -140,7 +121,7 @@ class News extends PureComponent {
           <BottomNewsHeader />
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={this.state.newsTwo}
+            data={newsTwo}
             keyExtractor={(item) => item.summary}
             renderItem={({ item }) => {
               return (
@@ -152,15 +133,15 @@ class News extends PureComponent {
                   summary={item.summary}
                   source={item.author}
                   topic={item.topic}
-                  article={this.sharearticletwo}
+                  article={sharearticletwo}
                 />
               );
             }}
           />
         </View>
-      );
-    }
-  }
+      )}
+    </React.Fragment>
+  );
 }
 
 export default News;

@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
        color: colors.darkGray
    },
    cardInnerMid:{
-    marginBottom: dimensions.margin.sm
+    marginBottom: dimensions.margin.xs
    },
    cardInnerMidText:{
        fontFamily: 'Regular',

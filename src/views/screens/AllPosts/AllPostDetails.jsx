@@ -1,9 +1,40 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
+import { deletePost } from "../../../backend/redux/actions/postAction";
 import dayjs from "dayjs";
 import styles from "./styles";
+import { connect } from "react-redux";
 
-const AllPostDetails = ({ name, text, image, date }) => {
+const AllPostDetails = ({
+  name,
+  text,
+  image,
+  date,
+  id,
+  deletePost,
+  navigation,
+}) => {
+  const deleteAlert = () =>
+    Alert.alert(
+      "Delete Post",
+      "Are you sure you want to delete this post?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: () => {
+            deletePost(id);
+            navigation.goBack();
+          },
+        },
+      ],
+      { cancelable: false }
+    );
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.innerContainer}>
@@ -22,8 +53,11 @@ const AllPostDetails = ({ name, text, image, date }) => {
           </View>
         </View>
       </View>
+      <TouchableOpacity onPress={deleteAlert}>
+        <Text>Delete</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default AllPostDetails;
+export default connect(null, { deletePost })(AllPostDetails);

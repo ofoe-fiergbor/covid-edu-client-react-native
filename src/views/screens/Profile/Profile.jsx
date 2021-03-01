@@ -16,11 +16,11 @@ const Profile = ({ navigation: { navigate }, logout, user, post }) => {
     <View style={styles.mainContainer}>
       <View style={styles.topContainer}>
         <Image
-          source={{ uri: `${user.photoUrl}` } ?? man}
+          source={{ uri: `${user?.photoUrl}` } ?? man}
           style={styles.topContainerImage}
         />
-        <Text style={styles.topContainerName}>{user.name}</Text>
-        <Text style={styles.topContainerEmail}>{user.email}</Text>
+        <Text style={styles.topContainerName}>{user?.name}</Text>
+        <Text style={styles.topContainerEmail}>{user?.email}</Text>
       </View>
       <View style={styles.bottomContainer}>
         <View style={styles.bottomContainerInner}>
@@ -96,7 +96,7 @@ const Profile = ({ navigation: { navigate }, logout, user, post }) => {
             </View>
           </TouchableOpacity>
         </View>
-        <Text style={styles.version}>Version: 1.0.0</Text>
+        {/* <Text style={styles.version}>Version: 1.0.0</Text> */}
       </View>
     </View>
   );
@@ -104,8 +104,8 @@ const Profile = ({ navigation: { navigate }, logout, user, post }) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.auth.user,
-    post: state.post.post,
+    user: state?.auth?.user,
+    post: state?.post?.post,
   };
 };
 export default connect(mapStateToProps, { logout })(Profile);

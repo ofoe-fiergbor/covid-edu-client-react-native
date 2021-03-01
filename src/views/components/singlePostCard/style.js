@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   head:{
       flexDirection:'row',
-      height: 50
+      height: 50,
   },
   profilePicture:{
       height: 55,

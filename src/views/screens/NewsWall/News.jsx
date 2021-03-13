@@ -98,7 +98,7 @@ function News() {
             showsHorizontalScrollIndicator={false}
             horizontal={true}
             data={news}
-            keyExtractor={(item) => item.title}
+            keyExtractor={(item) => item._id}
             contentContainerStyle={{
               paddingLeft: dimensions.padding.sm,
             }}

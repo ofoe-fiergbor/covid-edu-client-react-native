@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         fontSize: dimensions.font.sm
     },
     image:{
-        width: dimensions.image.lg,
+        width: dimensions.image.xxl,
         height: dimensions.image.xxl
     },
     image1:{
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     },
     buttonText:{
         fontFamily: 'Bold',
-        fontSize: dimensions.font.sm
+        fontSize: dimensions.font.sm + 3,
+        color: '#fff'
     },
   
     button:{

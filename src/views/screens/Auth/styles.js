@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         color: colors.whiteGray,
         fontFamily: 'Regular',
-        fontSize: dimensions.font.sm,
+        fontSize: dimensions.font.sm + 3,
         marginVertical: dimensions.margin.lg
         
     },
@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Regular'
     },
     image:{
-        width: dimensions.image.xl,
-        height: dimensions.image.lg
+        width: dimensions.image.xlx,
+        height: dimensions.image.xl
     },
     authButtons:{
         flex: 3,

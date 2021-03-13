@@ -26,6 +26,19 @@ const Landing = ({ navigation: { navigate } }) => {
       titleStyles={styles.title}
       subTitleStyles={styles.subTitle}
       pages={[
+
+        {
+          backgroundColor: colors.wash,
+          image: (
+            <Image
+              style={styles.image}
+              source={require("../../../../assets/images/png/wash.png")}
+            />
+          ),
+          title: "Hand Wash",
+          subtitle:
+            "Contaminated hands can transfer the virus to your body through your eyes, nose or mouth. ",
+        },
         {
           backgroundColor: colors.mask,
           image: (
@@ -38,29 +51,18 @@ const Landing = ({ navigation: { navigate } }) => {
           subtitle:
             "Before putting on a mask, clean hands with alcohol-based rub or soap and water.",
         },
+        
         {
           backgroundColor: colors.sanitize,
           image: (
             <Image
-              style={styles.image1}
+              style={styles.image}
               source={require("../../../../assets/images/png/sanitize.png")}
             />
           ),
           title: "Use Sanitiser",
           subtitle:
             "To protect yourself and others, clean your hands with alcohol-based sanitizer frequently.",
-        },
-        {
-          backgroundColor: colors.wash,
-          image: (
-            <Image
-              style={styles.image}
-              source={require("../../../../assets/images/png/wash.png")}
-            />
-          ),
-          title: "Hand Wash",
-          subtitle:
-            "Contaminated hands can transfer the virus to your body through your eyes, nose or mouth. ",
         },
       ]}
     />

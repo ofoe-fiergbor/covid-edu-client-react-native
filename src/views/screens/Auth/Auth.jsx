@@ -34,12 +34,12 @@ const Auth = ({
             buttonStyle={styles.goButton}
             textStyle={styles.buttonText}
           />
-          <Button
+          {/* <Button
             buttonName="Continue with facebook"
             onPress={() => loginWithFacebook()}
             buttonStyle={styles.fbButton}
             textStyle={styles.buttonText}
-          />
+          /> */}
         </View>
       </View>
     </ImageBackground>

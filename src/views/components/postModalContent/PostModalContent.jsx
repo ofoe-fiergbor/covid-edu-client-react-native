@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
-import FormInput from "../FormInput/FormInput";
-import Button from "../button/Button";
 import styles from "./styles";
-import { addNewPost } from "../../../backend/redux/actions/postAction";
+import Button from "../button/Button";
 import { connect } from "react-redux";
+import FormInput from "../FormInput/FormInput";
+import { View, TouchableOpacity, Text } from "react-native";
+import { addNewPost } from "../../../backend/redux/actions/postAction";
 
 const PostModalContent = ({ onPostSubmit, addNewPost, user }) => {
   const [post, setPost] = useState("");
@@ -49,15 +49,16 @@ const PostModalContent = ({ onPostSubmit, addNewPost, user }) => {
         <Text style={styles.cancel}>X</Text>
       </TouchableOpacity>
       <FormInput
-        placeholder="What's Happening?"
+        placeholder="Tell your story..."
         value={post}
         multiline={true}
         numberOfLines={100}
         textInputStyle={styles.textBox}
+        autoFocus={true}
         onChangeText={(text) => handleTextChange(text)}
       />
       <FormInput
-        placeholder={`${user.givenName}, Paste Youtube video url here`}
+        placeholder={`Hi ${user.givenName}, Paste Youtube video url here`}
         value={videoUrl}
         textInputStyle={styles.videoUrlTextBox}
         onChangeText={(text) => handleUrlChange(text)}

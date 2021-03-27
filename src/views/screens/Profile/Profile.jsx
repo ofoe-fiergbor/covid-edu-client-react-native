@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Alert } from "react-native";
 import styles from "./styles";
 import man from "../../../../assets/images/dummy/male1.jpg";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {
+  Feather,
   Ionicons,
   AntDesign,
   MaterialCommunityIcons,
@@ -12,6 +13,25 @@ import { connect } from "react-redux";
 import { logout } from "../../../backend/redux/actions/authAction";
 
 const Profile = ({ navigation: { navigate }, logout, user, post }) => {
+  const userLogout = () => {
+    Alert.alert(
+      "Logout",
+      `Hi ${user.givenName}, are you sure you want to logout?`,
+      [
+        {
+          text: "No",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: () => logout(),
+        },
+      ],
+      { cancelable: false }
+    );
+  };
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.topContainer}>
@@ -35,7 +55,7 @@ const Profile = ({ navigation: { navigate }, logout, user, post }) => {
                   size={25}
                   style={styles.chatIcon}
                 />
-                <Text style={styles.itemText}>All Posts</Text>
+                <Text style={styles.itemText}>Your Posts</Text>
               </View>
 
               <MaterialCommunityIcons
@@ -87,16 +107,15 @@ const Profile = ({ navigation: { navigate }, logout, user, post }) => {
           </TouchableOpacity>
 
           {/*********** Logout ***********/}
-          <TouchableOpacity onPress={() => logout()}>
+          <TouchableOpacity onPress={userLogout}>
             <View style={styles.bottomContainerInnerView}>
               <View style={{ flexDirection: "row" }}>
-                <AntDesign name="logout" size={25} style={styles.logoutIcon} />
+                <Feather name="log-out" size={25} style={styles.logoutIcon} />
                 <Text style={styles.itemText}>Logout</Text>
               </View>
             </View>
           </TouchableOpacity>
         </View>
-        {/* <Text style={styles.version}>Version: 1.0.0</Text> */}
       </View>
     </View>
   );

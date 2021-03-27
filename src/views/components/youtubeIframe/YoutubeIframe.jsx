@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useRef } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import React, { useState, useCallback } from "react";
 import YoutubePlayer from "react-native-youtube-iframe";
-import styles from "./styles";
+import { View } from "react-native";
 
 export default function YoutubeIframe({ videoUrl }) {
   const [playing, setPlaying] = useState(false);
@@ -18,10 +17,6 @@ export default function YoutubeIframe({ videoUrl }) {
     }
   }, []);
 
-  const togglePlaying = useCallback(() => {
-    setPlaying((prev) => !prev);
-  }, []);
-
   return (
     <View>
       <YoutubePlayer
@@ -30,15 +25,6 @@ export default function YoutubeIframe({ videoUrl }) {
         videoId={videoId}
         onChangeState={onStateChange}
       />
-      {playing ? (
-        <TouchableOpacity onPress={togglePlaying} style={styles.button}>
-          <Text style={styles.buttonText}>Pause</Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity onPress={togglePlaying} style={styles.button}>
-          <Text style={styles.buttonText}>Play</Text>
-        </TouchableOpacity>
-      )}
     </View>
   );
 }

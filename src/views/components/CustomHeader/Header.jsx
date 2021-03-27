@@ -1,14 +1,13 @@
-import React from 'react'
-import { View, Text, Image } from 'react-native'
-import styles from './styles'
-import headimage from '../../../../assets/images/dummy/male1.jpg'
+import React from "react";
+import styles from "./styles";
+import { View, Text } from "react-native";
 
 const Header = () => {
-    return (
-        <View style={styles.headerContainer}>
-            <Text style={styles.headerText}>Coronavirus Tracker</Text>
-        </View>
-    )
-}
+  return (
+    <View style={styles.headerContainer}>
+      <Text style={styles.headerText}>Coronavirus Tracker</Text>
+    </View>
+  );
+};
 
-export default Header
+export default Header;

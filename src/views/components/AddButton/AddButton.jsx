@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { Entypo } from "@expo/vector-icons";
 import styles from './styles'
+import { Entypo } from "@expo/vector-icons";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 const AddButton = ({onPress}) => {
   return (

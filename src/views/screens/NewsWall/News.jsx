@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from "react";
-import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
-import NewsHeader from "../../components/CustomHeader/NewsHeader";
-import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
-import { View, FlatList, Share, LogBox } from "react-native";
-import NewsDetail from "../NewsDetail/NewsDetail";
-import { dimensions } from "../../../constants";
-import Skeleton from "../Skeleton/Skeleton";
 import styles from "./styles";
+import Skeleton from "../Skeleton/Skeleton";
+import { dimensions } from "../../../constants";
+import NewsDetail from "../NewsDetail/NewsDetail";
+import newsKeys from "./../../../backend/apiKeys/NewsWall";
+import { View, FlatList, Share, LogBox } from "react-native";
+import BottomNewsDetail from "../NewsDetail/BottomNewsDetail";
+import NewsHeader from "../../components/CustomHeader/NewsHeader";
+import BottomNewsHeader from "../../components/CustomHeader/BottomNewsHeader";
 
 LogBox.ignoreAllLogs();
 
 function News() {
   const [news, setNews] = useState([]);
-  const [newsTwo, setNewsTwo] = useState([]);
   const [loading, setLoading] = useState(true);
 
   //Fetch News One
   const fetchNews = () => {
-    fetch(
-      "https://covid-19-news.p.rapidapi.com/v1/covid?q=coronavirus&lang=en&media=True",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "covid-19-news.p.rapidapi.com",
-          "x-rapidapi-key":
-            "4797fbff69msh206c52ea361382fp183ae2jsnff7bdaf2dd33",
-        },
-      }
-    )
+    fetch(newsKeys.BASE_URL, {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": newsKeys.RAPID_API_HOST,
+        "x-rapidapi-key": newsKeys.RAPID_API_KEY,
+      },
+    })
       .then((res) => res.json())
       .then((response) => {
         setNews(response.articles);
@@ -37,47 +33,13 @@ function News() {
         console.log(err);
       });
   };
-  //Fetch News Two
-  const fetchNewsTwo = () => {
-    fetch(
-      "https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&media=True",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "covid-19-news.p.rapidapi.com",
-          "x-rapidapi-key":
-            "4797fbff69msh206c52ea361382fp183ae2jsnff7bdaf2dd33",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((response) => {
-        setNewsTwo(response.articles);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   useEffect(() => {
     fetchNews();
-    fetchNewsTwo();
   }, []);
 
-  //Share Article One
+  //Share Article
   const sharearticle = async (article) => {
-    try {
-      await Share.share({
-        message: "Kindly check this article out " + article,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //Share Article Two
-  const sharearticletwo = async (article) => {
     try {
       await Share.share({
         message: "Kindly check this article out " + article,
@@ -97,11 +59,12 @@ function News() {
           <FlatList
             showsHorizontalScrollIndicator={false}
             horizontal={true}
-            data={news}
+            data={news.slice(0, 4)}
             keyExtractor={(item) => item._id}
             contentContainerStyle={{
               paddingLeft: dimensions.padding.sm,
             }}
+            
             renderItem={({ item }) => {
               return (
                 <NewsDetail
@@ -121,8 +84,8 @@ function News() {
           <BottomNewsHeader />
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={newsTwo}
-            keyExtractor={(item) => item.summary}
+            data={news}
+            keyExtractor={(item) => item._id}
             renderItem={({ item }) => {
               return (
                 <BottomNewsDetail
@@ -133,7 +96,7 @@ function News() {
                   summary={item.summary}
                   source={item.author}
                   topic={item.topic}
-                  article={sharearticletwo}
+                  article={sharearticle}
                 />
               );
             }}

@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text } from "react-native";
 import styles from "./styles";
-import { CountUp } from "use-count-up";
+import TrackerCard from "./../../components/TrackerCard/TrackerCard";
+import InternationalTrackerCard from "../../components/internationalTrackerCard/InternationalTrackerCard";
 
 function TrackerTemplate(props) {
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+  }
   const {
     ghanaconfirmedCases,
     ghanaRecoveries,
@@ -15,7 +16,7 @@ function TrackerTemplate(props) {
     time,
     globalconfirmedCases,
     globalRecoveries,
-    globalFatalities
+    globalFatalities,
   } = props.coronaData;
   return (
     <View style={styles.datailsContainer}>
@@ -27,29 +28,34 @@ function TrackerTemplate(props) {
             Last Updated: {date} {time}
           </Text>
         </View>
+
         <View style={styles.ghanaCardInner}>
-          <View style={styles.singleghanaCard1}>
-            <Text style={styles.heading}>Active Cases</Text>
-            <Text style={styles.number}>
-              {numberWithCommas(ghanaconfirmedCases - ghanaRecoveries - ghanaFatalities)}
-            </Text>
-          </View>
-          <View style={styles.singleghanaCard2}>
-            <Text style={styles.heading}>Infected</Text>
-            <Text style={styles.number}>{numberWithCommas(ghanaconfirmedCases)}</Text>
-          </View>
+          <TrackerCard
+            heading="Active Cases"
+            renderData={numberWithCommas(
+              ghanaconfirmedCases - ghanaRecoveries - ghanaFatalities
+            )}
+          />
+
+          <TrackerCard
+            heading="Infected"
+            containerStyles={styles.borderRed}
+            renderData={numberWithCommas(ghanaconfirmedCases)}
+          />
         </View>
         <View style={styles.ghanaCardInner}>
-          <View style={styles.singleghanaCard3}>
-            <Text style={styles.heading}>Recoveries</Text>
-            <Text style={styles.number}>{numberWithCommas(ghanaRecoveries)}</Text>
-          </View>
-          <View style={styles.singleghanaCard4}>
-            <Text style={styles.heading}>Deaths</Text>
-            <Text style={styles.number}>{numberWithCommas(ghanaFatalities)}</Text>
-          </View>
+          <TrackerCard
+            heading="Recoveries"
+            containerStyles={styles.borderGreen}
+            renderData={numberWithCommas(ghanaRecoveries)}
+          />
+
+          <TrackerCard
+            heading="Deaths"
+            containerStyles={styles.borderBlack}
+            renderData={numberWithCommas(ghanaFatalities)}
+          />
         </View>
-        
       </View>
 
       {/*********** Ghana Cases *************/}
@@ -61,20 +67,24 @@ function TrackerTemplate(props) {
           </Text>
         </View>
         <View style={styles.globalCard}>
-          <View style={styles.cardContainer}>
-            <Text style={styles.infectedText}>Infected</Text>
-            <Text style={styles.infectedText1}>{numberWithCommas(globalconfirmedCases)}</Text>
-          </View>
-          <View style={styles.cardContainer}>
-            <Text style={styles.recoveredText}>Recovered</Text>
-            <Text style={styles.recoveredText1}>{numberWithCommas(globalRecoveries)}</Text>
-          </View>
-          <View style={styles.cardContainer}>
-            <Text style={styles.deathText}>Deaths</Text>
-            <Text style={styles.deathText1}>{numberWithCommas(globalFatalities)}</Text>
-          </View>
+          <InternationalTrackerCard
+            color={styles.redColor}
+            renderInfo={numberWithCommas(globalconfirmedCases)}
+            heading="Infected"
+          />
+
+          <InternationalTrackerCard
+            color={styles.greenColor}
+            renderInfo={numberWithCommas(globalRecoveries)}
+            heading="Recovered"
+          />
+
+          <InternationalTrackerCard
+            color={styles.blackColor}
+            renderInfo={numberWithCommas(globalFatalities)}
+            heading="Deaths"
+          />
         </View>
-       
       </View>
     </View>
   );

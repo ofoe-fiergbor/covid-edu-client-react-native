@@ -1,11 +1,11 @@
 import React from "react";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { Entypo, AntDesign } from "@expo/vector-icons";
 import { colors } from "../constants";
 import Post from "../views/screens/PostWall/Post";
 import News from "../views/screens/NewsWall/News";
-import Tracker from "../views/screens/Tracker/Tracker";
 import Profile from "../views/screens/Profile/Profile"
+import Tracker from "../views/screens/Tracker/Tracker";
+import { Entypo, AntDesign } from "@expo/vector-icons";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 const Tab = createMaterialBottomTabNavigator();
 

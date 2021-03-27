@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
+import relativeTime  from 'dayjs/plugin/relativeTime'
 import styles from "./styles";
 import { FontAwesome, Feather, SimpleLineIcons } from "@expo/vector-icons";
 import { View, Text, Image, Animated, Alert } from "react-native";
@@ -10,6 +11,7 @@ import {
 import { Root, ActionSheet } from "native-base";
 import { deletePost } from "../../../backend/redux/actions/postAction";
 import YoutubeIframe from "../../components/youtubeIframe/YoutubeIframe";
+
 
 import { connect } from "react-redux";
 
@@ -26,11 +28,14 @@ const PostDetail = ({
   navigation,
   deletePost,
 }) => {
+
+  dayjs.extend(relativeTime)
+
   var BUTTONS = [
     { text: "Delete Post", icon: "trash", iconColor: "red" },
     { text: "Cancel", icon: "close", iconColor: "#000" },
   ];
-  var CANCEL_INDEX = 2;
+  var CANCEL_INDEX = 1;
 
   const deleteAlert = () =>
     Alert.alert(
@@ -80,7 +85,7 @@ const PostDetail = ({
                 {name}
               </Text>
               <Text style={styles.cardHeadRightDate}>
-                {dayjs(date).format("DD-MMM-YY")}
+                {dayjs(date).fromNow()}
               </Text>
             </View>
           </View>

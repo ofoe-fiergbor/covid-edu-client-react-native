@@ -4,7 +4,7 @@ import { colors, dimensions } from "../../../constants";
 
 const styles = StyleSheet.create({
     mainContainer:{
-        backgroundColor: colors.lightBlueGradient,
+        backgroundColor: colors.blue,
         flex: 1
     },
     topContainer:{
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     },
     logoutIcon:{
         color: colors.black,
-        backgroundColor: colors.darkGradient,
+        backgroundColor: colors.gray,
         padding: dimensions.padding.xs,
         borderRadius: dimensions.radius.xs
     },

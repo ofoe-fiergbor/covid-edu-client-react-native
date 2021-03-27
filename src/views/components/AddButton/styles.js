@@ -4,15 +4,15 @@ import { colors, dimensions } from "../../../constants";
 
 const styles = StyleSheet.create({
     addButton: {
-        width: dimensions.margin.xxxl,
-        height: dimensions.margin.xxxl,
-        backgroundColor: colors.blueGradient,
-        borderRadius: dimensions.radius.lg,
         position: "absolute",
+        alignItems: "center",
+        justifyContent: "center",
         bottom: dimensions.margin.md,
         right: dimensions.margin.md,
-        justifyContent: "center",
-        alignItems: "center",
+        width: dimensions.margin.xxl,
+        backgroundColor: colors.blue,
+        height: dimensions.margin.xxl,
+        borderRadius: dimensions.radius.lg,
       },
       icon:{
           color: colors.white

@@ -23,7 +23,7 @@ const AuthStack = ({ user }) => {
       {!user ? (
         <Stack.Navigator
           initialRouteName="landing"
-          screenOptions={screenOptions}
+          // screenOptions={screenOptions}
         >
           <Stack.Screen name="landing" component={Landing} options={options} />
           <Stack.Screen name="auth" component={Auth} options={options} />

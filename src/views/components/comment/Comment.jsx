@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
-import styles from "./styles";
 import dayjs from "dayjs";
+import styles from "./styles";
 import Hyperlink from "react-native-hyperlink";
+import { View, Text, Image } from "react-native";
 
 const Comment = ({ name, date, text, image }) => {
   return (

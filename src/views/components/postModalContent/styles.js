@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontFamily: "Regular",
     fontSize: 15,
+    textAlignVertical: 'top',
+    paddingVertical: dimensions.padding.md
+
   },
   videoUrlTextBox: {
     backgroundColor: colors.whiteGray,

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles";
-import {TouchableOpacity } from "react-native";
 import Label from "../label/Label";
+import {TouchableOpacity } from "react-native";
 
 const button = ({ buttonName, buttonStyle, onPress, textStyle, isDisabled=false }) => {
   return (

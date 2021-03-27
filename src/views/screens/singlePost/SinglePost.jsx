@@ -7,9 +7,7 @@ import { View, TouchableOpacity, FlatList, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { connect } from "react-redux";
 import styles from "./style";
-import {
-  addNewComment,
-} from "../../../backend/redux/actions/postAction";
+import { addNewComment } from "../../../backend/redux/actions/postAction";
 
 const SinglePost = ({ route, navigation, user, addNewComment }) => {
   const {
@@ -22,6 +20,8 @@ const SinglePost = ({ route, navigation, user, addNewComment }) => {
     videoUrl,
     userId,
   } = route.params;
+
+  
 
   const [comment, setComment] = useState("");
 
@@ -39,7 +39,6 @@ const SinglePost = ({ route, navigation, user, addNewComment }) => {
       backPress();
     }
   };
-
 
   const backPress = () => {
     navigation.goBack();
@@ -60,7 +59,7 @@ const SinglePost = ({ route, navigation, user, addNewComment }) => {
           navigation={navigation}
         />
         <View style={styles.comments}>
-          {comments && (
+          {comments ? (
             <FlatList
               data={comments}
               keyExtractor={(item) => item.commentId}
@@ -76,7 +75,7 @@ const SinglePost = ({ route, navigation, user, addNewComment }) => {
                 );
               }}
             />
-          )}
+          ) : null}
         </View>
       </View>
       <View style={styles.commentInputContainer}>
@@ -85,7 +84,7 @@ const SinglePost = ({ route, navigation, user, addNewComment }) => {
           autoFocus={false}
           textInputStyle={styles.commentInput}
           onChangeText={(text) => handleTextChange(text)}
-          placeholder={`Hi ${user.givenName}, type your comment here! `}
+          placeholder={`Hi ${user.givenName}, add your comments here! `}
         />
         <TouchableOpacity onPress={() => submit()}>
           <Ionicons name="ios-send" size={20} style={styles.icon} />

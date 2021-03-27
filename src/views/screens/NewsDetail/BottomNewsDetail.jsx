@@ -1,45 +1,50 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   View,
   Text,
-  ImageBackground,
   TouchableOpacity,
   Image,
   Linking,
 } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import styles from "./styles";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-class BottomNewsDetail extends Component {
-  render() {
-    return (
+
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+
+const BottomNewsDetail =({ date, article, url, image, title, summary }) => {
+
+  dayjs.extend(relativeTime);
+
+  return (
       <View style={styles.bottomImageContainer}>
-        <Image source={{ uri: this.props.image }} style={styles.bottomImage} />
+        <Image source={{ uri: image }} style={styles.bottomImage} />
         <View style={styles.bottomTextContainer}>
           <TouchableWithoutFeedback
-            onPress={() => Linking.openURL(this.props.url)}
+            onPress={() => Linking.openURL(url)}
           >
             <Text numberOfLines={2} style={styles.bottomText}>
-              {this.props.title}
+              {title}
             </Text>
             <Text numberOfLines={2} style={styles.bottomDescription}>
-              {this.props.summary}
+              {summary}
             </Text>
           </TouchableWithoutFeedback>
           <View style={styles.bottomInfo2}>
-            <Text style={styles.bottomInfoDate}>{this.props.date}</Text>
+            <Text style={styles.bottomInfoDate}>{dayjs(date).fromNow()}</Text>
             <TouchableOpacity
               style={styles.bottomIcon}
-              onPress={() => this.props.article(this.props.url)}
+              onPress={() => article(url)}
             >
-              <FontAwesome5 name="share" size={15} style={styles.bottomIcon} />
+              <Feather name="share" size={15} style={styles.bottomIcon} />
             </TouchableOpacity>
           </View>
         </View>
       </View>
     );
   }
-}
 
 export default BottomNewsDetail;

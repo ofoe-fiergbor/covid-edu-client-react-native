@@ -1,12 +1,13 @@
 import React from "react";
 import dayjs from "dayjs";
 import styles from "./style";
-import Hyperlink from "react-native-hyperlink";
-import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
-import { FontAwesome, Feather, SimpleLineIcons } from "@expo/vector-icons";
 import { connect } from "react-redux";
-import YoutubeIframe from "../../components/youtubeIframe/YoutubeIframe";
+import Hyperlink from "react-native-hyperlink";
+import relativeTime  from 'dayjs/plugin/relativeTime'
+import { FontAwesome, Feather } from "@expo/vector-icons";
 import { deletePost } from "../../../backend/redux/actions/postAction";
+import YoutubeIframe from "../../components/youtubeIframe/YoutubeIframe";
+import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
 
 const SinglePostCard = ({
   id,
@@ -21,6 +22,10 @@ const SinglePostCard = ({
   deletePost,
   navigation,
 }) => {
+
+  dayjs.extend(relativeTime)
+
+
   const deleteAlert = () =>
     Alert.alert(
       "Delete Post",
@@ -48,14 +53,14 @@ const SinglePostCard = ({
           <Image source={{ uri: image }} style={styles.profilePicture} />
           <View>
             <Text style={styles.name}>{name}</Text>
-            <Text style={styles.date}>{dayjs(date).format("DD-MMM-YY")}</Text>
+            <Text style={styles.date}>{dayjs(date).fromNow(true)}</Text>
           </View>
 
-          {userId === user.id && (
+          {userId === user.id ? (
             <TouchableOpacity onPress={deleteAlert}>
               <FontAwesome name="trash-o" size={20} style={styles.icon} />
             </TouchableOpacity>
-          )}
+          ): null}
         </>
       </View>
       <View style={styles.body}>
@@ -64,12 +69,12 @@ const SinglePostCard = ({
             {text}
           </Text>
         </Hyperlink>
-        {videoUrl && <YoutubeIframe videoUrl={videoUrl} />}
+        {videoUrl ? <YoutubeIframe videoUrl={videoUrl} />: null}
       </View>
       <View style={styles.footer}>
         <View style={{ flexDirection: "row" }}>
           <FontAwesome name="comment-o" size={20} style={styles.icon} />
-          {comments && <Text>{comments.length}</Text>}
+          {comments ? <Text>{comments.length}</Text>: null}
         </View>
 
         <Feather name="share" size={20} style={styles.icon} />

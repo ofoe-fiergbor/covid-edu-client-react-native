@@ -133,6 +133,15 @@ const styles = StyleSheet.create({
     width: dimensions.matchParent,
     flexDirection: 'row'
   },
+  postCard:{
+    backgroundColor: colors.whiteGradient,
+    marginHorizontal: dimensions.margin.sm ,
+    marginTop: dimensions.margin.md + 5,
+    
+  },
+  mainPostCard:{
+    
+  },
   trackImage:{
     width: dimensions.image.xl,
     height: dimensions.image.xl,
@@ -143,11 +152,22 @@ const styles = StyleSheet.create({
     marginTop: dimensions.margin.xxxl,
     marginLeft: dimensions.margin.md + 5
   },
+  postCardTextContainer:{
+    marginTop: dimensions.margin.sm,
+    marginBottom: dimensions.margin.md
+  },
   trackImageText:{
     width: dimensions.image.xl,
     height: dimensions.margin.md,
     borderRadius: dimensions.radius.sm,
     marginBottom: 10
+  },
+  postCardText:{
+    width: dimensions.image.xxxxl,
+    height: dimensions.margin.sm,
+    borderRadius: dimensions.radius.sm,
+    marginBottom: 10,
+    marginHorizontal: dimensions.margin.sm
   },
   trackHeaderTwo:{
     width: dimensions.image.xxlx,
@@ -175,6 +195,14 @@ const styles = StyleSheet.create({
     width: dimensions.image.xl + 15,
     height: dimensions.image.xl - 45,
     borderRadius: dimensions.radius.xs
+  },
+  addBtn:{
+    height: dimensions.image.sm,
+    width: dimensions.image.sm,
+    position: 'absolute',
+    bottom: 5,
+    right: 10,
+    borderRadius: dimensions.radius.lg
   }
 });
 

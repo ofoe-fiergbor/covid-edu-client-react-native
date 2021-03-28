@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
-import relativeTime  from 'dayjs/plugin/relativeTime'
+import relativeTime from "dayjs/plugin/relativeTime";
 import styles from "./styles";
 import { FontAwesome, Feather, SimpleLineIcons } from "@expo/vector-icons";
 import { View, Text, Image, Animated, Alert } from "react-native";
@@ -12,8 +12,8 @@ import { Root, ActionSheet } from "native-base";
 import { deletePost } from "../../../backend/redux/actions/postAction";
 import YoutubeIframe from "../../components/youtubeIframe/YoutubeIframe";
 
-
 import { connect } from "react-redux";
+import SharePost from "../../components/share/SharePost";
 
 const PostDetail = ({
   id,
@@ -28,8 +28,7 @@ const PostDetail = ({
   navigation,
   deletePost,
 }) => {
-
-  dayjs.extend(relativeTime)
+  dayjs.extend(relativeTime);
 
   var BUTTONS = [
     { text: "Delete Post", icon: "trash", iconColor: "red" },
@@ -72,6 +71,14 @@ const PostDetail = ({
     comments,
     videoUrl,
     userId,
+  };
+
+
+  const AppUrl = "https://youtube.com";
+  const onShare = () => {
+    const url = AppUrl;
+
+    SharePost.onShare("Educov", "Kindly checkout this amazing post on Educov.", url);
   };
   return (
     <Root>
@@ -116,8 +123,9 @@ const PostDetail = ({
             </TouchableOpacity>
             {comments && <Text>{comments.length}</Text>}
           </View>
-
-          <Feather name="share" size={20} style={styles.icon} />
+          <TouchableOpacity onPress={onShare}>
+            <Feather name="share" size={20} style={styles.icon} />
+          </TouchableOpacity>
         </View>
       </Animated.View>
     </Root>

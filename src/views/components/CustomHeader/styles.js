@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     fontSize: dimensions.font.md,
     marginLeft: dimensions.margin.sm,
     color: colors.blue,
-    marginTop: 20,
+    marginTop: 30,
   },
   bottomNewsHeader: {
     fontFamily: "Bold",
